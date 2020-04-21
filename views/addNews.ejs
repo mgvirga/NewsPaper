@@ -1,0 +1,67 @@
+<html class="cool">
+    <head>
+        <h1>Please enter your news article</h1>
+        <style>
+            .cool{ background-image: linear-gradient(white, blue) !important;}
+            table 
+            {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            td, th 
+            {
+                border: 5px solid black;
+                text-align: left;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="POST">
+            <p>
+                <label>
+                    Title<br>
+                    <input type="text" placeholder="title" id ="news" name="title"/>
+                </label>
+            </p>
+            <p>
+                <label>
+                    Description<br>
+                    <input type="text" placeholder="description" id = "news" name="description"/>
+                </label>
+            </p>
+            <p>
+                <label>
+                    Url<br>
+                    <input type="text" placeholder="url" id = "news" name="url"/>
+                </label>
+            </p>
+            <p>
+                <label>
+                    Image Url<br>
+                    <input type="text" placeholder="imageurl" id = "news" name="imageurl"/>
+                </label>
+            </p>
+            <button type="submit">Add user</button>
+        </form>
+
+        <script>
+            $(document).ready(function () {
+                $('#display').DataTable();
+            });
+        </script>
+    <br><br><br>
+   <ui>
+       <li><a href="/showItem">Show Item</a></li>
+       <li><a href="/addNews">Add News</a></li>
+       <li><a href="/addItem">Add Item</a></li>
+       <li><a href="/weather">Weather</a></li>
+       <% if(test){ %>
+
+        <li><a href="/showUser">Show User</a></li>
+        <li><a href="/addUser">Add User</a></li>
+        <% } %>
+   </ui>
+      
+</html>
