@@ -12,7 +12,8 @@
     "moment": "^2.24.0",
     "mongodb": "^3.5.5",
     "mongoose": "^5.9.9",
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.3",
+    "request": "^2.88.0"
   },
   "devDependencies": {},
   "scripts": {

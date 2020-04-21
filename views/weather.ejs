@@ -1,0 +1,68 @@
+<html lang="en">
+	<head>
+	<style>
+        html
+        {
+            background-image: linear-gradient(white, blue);
+        }
+        table 
+        {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th 
+        {
+            border: 5px solid black;
+            text-align: left;
+            padding: 20px;
+        }
+
+    </style>
+
+	</head>
+	<body>
+        <h2>City: <%=result.city.name%></h2>
+        <table>
+        <thead>
+            <tr>
+                <th>The temperature for the day</th>
+                <th>The max temperature</th>
+                <th>The min temperature</th>
+                <th>The main weather</th>
+                <th>The date</th>
+                <th>whatever dt is</th>
+                <th>The humidity</th>
+                <th>The Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <%for(let i=0; i<result.list.length;i++){%>
+                <th><%=result.list[i].temp.day%>°C</th>
+                <th><%=result.list[i].temp.max%></th>
+                <th><%=result.list[i].temp.min%>°C</th>
+                <th><%=result.list[i].weather[0].main%></th>
+                <th><%=Date(result.list[i].dt)%></th>
+                <th><%=Date(result.list[i].dt)%></th>
+                <th><%=result.list[i].humidity%></th>
+                <th><img class="card-img-top" src='https://openweathermap.org/img/w/<%=result.list[i].weather[0].icon%>.png' alt="weather"/></th>
+            </tr>
+            <%}%>
+    </tbody>
+    </table>
+
+    <br><br><br>
+ <ui>
+       <li><a href="/showItem">Show Item</a></li>
+       <li><a href="/addItem">Add Item</a></li>
+       <li><a href="/weather">Weather</a></li>
+       <% if(test){ %>
+
+        <li><a href="/showUser">Show User</a></li>
+        <li><a href="/addUser">Add User</a></li>
+    <% } %>
+   </ui>
+        
+    </body>
+</html>
