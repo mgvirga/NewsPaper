@@ -18,6 +18,7 @@ const addUser = require("./routes/addUser");
 const showUser = require("./routes/showUser");
 const showItem = require("./routes/showItem");
 const showWeather = require("./routes/weather")
+const home = require("./routes/home");
 
 app.set("view engine", "ejs");
 
@@ -33,6 +34,7 @@ app.use("/addUser", addUser);
 app.use("/showUser", showUser);
 app.use("/showItem", showItem);
 app.use("/weather", showWeather);
+app.use("/home", home);
 
 
 app.listen(3000, ()=>{
