@@ -1,0 +1,66 @@
+<h1>User</h1>
+
+
+<html class="cool">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <style>.highlight{background-color: yellow !important;}</style>
+    <style>.cool{ background-image: linear-gradient(white, blue) !important;}</style>
+    <style>
+    table 
+    {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    td, th 
+    {
+    border: 5px solid black;
+    text-align: left;
+    padding: 20px;
+    }
+
+        </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Grocery Item</th>
+                <th>Cost</th>
+                <th>Expiration Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% posts.forEach(function(post){ %>
+                <tr>
+                    <th><%=post.grocery_Item%></th>
+                    <th><%=post.cost%></th>
+                    <th><%=post.expiration_Date%></th>
+                </tr>
+            <%});%>
+    </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $('#display').DataTable();
+        });
+    </script>
+</body>
+<ui>
+    <li><a href="/showItem">Show Item</a></li>
+    <li><a href="/addItem">Add Item</a></li>
+    <% if(test){ %>
+
+        <li><a href="/showUser">Show User</a></li>
+        <li><a href="/addUser">Add User</a></li>
+    <% } %>
+</ui>
+
+</html>

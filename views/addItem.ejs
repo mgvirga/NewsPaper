@@ -1,0 +1,59 @@
+<html class="cool">
+    <head>
+        <h1>Please enter the Item</h1>
+        <style>
+            .cool{ background-image: linear-gradient(white, blue) !important;}
+            table 
+            {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            td, th 
+            {
+                border: 5px solid black;
+                text-align: left;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="POST">
+            <p>
+                <label>
+                    Item Name<br>
+                    <input type="text" placeholder="grocery_Item" id = "grocery_Item" name="grocery_Item"/>
+                </label>
+            </p>
+            <p>
+                <label>
+                    Cost<br>
+                    <input type="text" placeholder="cost" id = "cost" name="cost"/>
+                </label>
+            </p>
+            <p>
+                <label>
+                    Expiration Date<br>
+                    <input type="text" placeholder="expiration_Date" id = "expiration_Date" name="expiration_Date"/>
+                </label>
+            </p>
+            <button type="submit">Add user</button>
+        </form>
+
+        <script>
+            $(document).ready(function () {
+                $('#display').DataTable();
+            });
+        </script>
+    <br><br><br>
+    <ui>
+        <li><a href="/showItem">Show Item</a></li>
+        <li><a href="/addItem">Add Item</a></li>
+        <% if(test){ %>
+
+            <li><a href="/showUser">Show User</a></li>
+            <li><a href="/addUser">Add User</a></li>
+        <% } %>
+    </ui>
+      
+</html>
