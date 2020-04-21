@@ -1,0 +1,55 @@
+<html class="cool">
+<head>
+    <h1>Please enter the new user</h1>
+    <style>
+        .cool{ background-image: linear-gradient(white, blue) !important;}
+        table
+        {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th
+        {
+            border: 5px solid black;
+            text-align: left;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<form method="POST">
+    <p>
+        <label>
+            Email<br>
+            <input type="text" placeholder="Email" id ="contact" name="email"/>
+        </label>
+    </p>
+    <p>
+        <label>
+            Query<br>
+            <input type="text" placeholder="Enter query" id = "contact" name="query"/>
+        </label>
+    </p>
+    <button type="submit">Submit Query</button>
+</form>
+
+<script>
+    $(document).ready(function () {
+        $('#display').DataTable();
+    });
+</script>
+<br><br><br>
+<ui>
+    <li><a href="/showItem">Show Item</a></li>
+    <li><a href="/addItem">Add Item</a></li>
+    <li><a href="/weather">Weather</a></li>
+    <li><a href="/submitQuery">submitQuery</a></li>
+<% if(test){ %>
+
+        <li><a href="/showUser">Show User</a></li>
+        <li><a href="/addUser">Add User</a></li>
+    <% } %>
+</ui>
+
+</html>

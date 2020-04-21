@@ -5,7 +5,7 @@ const FoodSchema = new Schema({
     grocery_Item : String,
     cost : String, 
     expiration_Date : String,
-})
+});
 
 const FoodModel = new mongoose.model("food", FoodSchema, "col1");
 

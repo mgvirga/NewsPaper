@@ -1,6 +1,5 @@
 const express = require("express");
 const Router = express.Router();
-const UserModel = require("../model/user");
 const FoodModel = require("../model/food");
 let instances = require("../util/userInstance");
 
@@ -22,7 +21,7 @@ Router.post("/", (req, res)=>{
             grocery_Item : req.body.grocery_Item,
             cost : req.body.cost,
             expiration_Date : req.body.expiration_Date,
-        })
+        });
         console.log("user has been added");
         Food.save();
         res.redirect("/addItem");
