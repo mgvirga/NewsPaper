@@ -17,13 +17,14 @@ const addItem = require("./routes/addItem");
 const addUser = require("./routes/addUser");
 const showUser = require("./routes/showUser");
 const showItem = require("./routes/showItem");
-const showWeather = require("./routes/weather")
+const showWeather = require("./routes/weather");
+const submitQuery = require("./routes/submitQuery");
 
 app.set("view engine", "ejs");
 
-app.use(bodyParser.json({ type : "application/json" }))
-app.use(bodyParser.text({ type : "text/html" }))
-app.use(bodyParser.urlencoded({ extended : true }))
+app.use(bodyParser.json({ type : "application/json" }));
+app.use(bodyParser.text({ type : "text/html" }));
+app.use(bodyParser.urlencoded({ extended : true }));
 
 
 //defining ejs files for routing
@@ -33,7 +34,7 @@ app.use("/addUser", addUser);
 app.use("/showUser", showUser);
 app.use("/showItem", showItem);
 app.use("/weather", showWeather);
-
+app.use("/submitQuery", submitQuery);
 
 app.listen(3000, ()=>{
     console.log("Server Started...")
