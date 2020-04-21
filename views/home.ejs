@@ -29,6 +29,11 @@ body {font-family: "Lato", sans-serif;}
   text-align: center;
 }
 
+.references {
+  id : showUser,
+
+}
+
 #London {background-color:red;}
 #Paris {background-color:green;}
 #Tokyo {background-color:blue;}
@@ -36,6 +41,12 @@ body {font-family: "Lato", sans-serif;}
 </style>
 </head>
 <body>
+
+  <div id='showUser' class="referenceName"></div>
+  <div id='showItem' class="referenceName"></div>
+  <div id='addUser' class="referenceName"></div>
+  <div id='addItem' class="referenceName"></div>
+
 
 <p>Click on the buttons inside the tabbed menu:</p>
 
@@ -77,7 +88,7 @@ function openCity(cityName,elmnt,color) {
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-  tablinks = document.getElementsByClassName("tablink");
+  tablinks = document.getElementsByClassName("referenceName");
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].style.backgroundColor = "";
   }
@@ -92,9 +103,13 @@ function navigate(pageName, elmnt)
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-  tablinks = document.getElementsByClassName("tablink");
+  linkRefs = document.getElementsByClassName("linkRefs");
   for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
+    if(pageName == linkRefs.id)
+    {
+      res.redirect("/" + pageName);
+      res.render(pageName);
+    }
   }
   document.getElementById(cityName).style.display = "block";
   elmnt.style.backgroundColor = color;
