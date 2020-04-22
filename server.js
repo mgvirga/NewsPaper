@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const path = require('path');
 const request = require('request');
 const PORT = 3000;
-const db = mongoose.connect("mongodb://localhost:27017/groceryManager", { useNewUrlParser: true, useUnifiedTopology: true })
+const db = mongoose.connect("mongodb://localhost:27017/project", { useNewUrlParser: true })
 
 const city = "alpharetta";
 

@@ -4,6 +4,6 @@ const ContactSchema = new Schema({
     email : String,
     query : String,
 });
-const ContactModel = new mongoose.model("contact", ContactSchema, "project");
+const ContactModel = new mongoose.model("contact", ContactSchema, "email");
 
 module.exports = ContactModel;
