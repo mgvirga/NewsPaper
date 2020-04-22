@@ -23,7 +23,7 @@ Router.get("/", (req, res)=>{
        UserModel.findById(decoded.id, { password: 0 }, function (err, user) {
               if (err) {res.redirect('/')}
               if (!user) {res.redirect('/')}
-              // console.log(user.accountType);
+              console.log(user.accountType);
               if(user.accountType === true )
               {
                      res.render("home");

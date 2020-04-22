@@ -22,6 +22,7 @@ const addNews = require("./routes/addNews");
 const home = require("./routes/home");
 const signup = require("./routes/signup");
 const newsBoard = require("./routes/newsBoard");
+const sports = require("./routes/sports");
 
 // Danielle imported editNews and editUser
 const editNews = require("./routes/editNews");
@@ -45,8 +46,9 @@ app.use("/weather", showWeather);
 app.use("/submitQuery", submitQuery);
 app.use("/addNews", addNews);
 app.use("/home", home);
-app.use("/sign-up", signup)
-app.use("/newsBoard", newsBoard)
+app.use("/sign-up", signup);
+app.use("/newsBoard", newsBoard);
+app.use("/sports", sports);
 
 // Danielle added editNews  and editUser routes
 app.use("/editNews", editNews);
