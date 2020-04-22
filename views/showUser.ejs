@@ -4,9 +4,24 @@
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
     </header>
     <head>
-        <h1>Please enter the new user</h1>
+        <h1>Users</h1>
         <style>
-            .cool{ background-image: linear-gradient(white, blue) !important;}
+            body {
+            background-color: white;
+            color: black;
+            padding: 5px;
+            }
+            table{
+            border: 1px solid black;
+            padding: 3px;
+            width: 100%;
+            }
+            td, th {
+            border: 1px solid black;
+            padding: 3px;
+            columns: 150px;
+            }
+            /* .cool{ background-image: linear-gradient(white, blue) !important;}
             table 
             {
                 font-family: arial, sans-serif;
@@ -18,34 +33,41 @@
                 border: 5px solid black;
                 text-align: left;
                 padding: 20px;
-            }
+            } */
         </style>
     </head>
-
-<table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Username</th>
-            <th>Password</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% posts.forEach(function(post){ %>
+<body>
+    <table>
+        <thead>
             <tr>
-                <th><%=post.title%></th>
-                <th><%=post.username%></th>
-                <th><%=post.password%></th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Edit</th>
+                
             </tr>
-        <%});%>
-    </tbody>
-</table>
-<script>
-    $(document).ready(function () {
-        $('#display').DataTable();
-    });
-</script>
-<style>
+        </thead>
+        <tbody>
+            <% posts.forEach(function(post){ %>
+                <tr>
+                    <td><%=post._id%></td>
+                    <td><%=post.name%></td>
+                    <td><%=post.username%></td>
+                    <td>
+                        <button name="edit" onclick="location.href='/editUser/<%= post._id %>'">Edit</button>
+                    </td>
+                </tr>
+            <%});%>
+        </tbody>
+    </table>
+    <script>
+        $(document).ready(function () {
+            $('#display').DataTable();
+        });
+    </script>
+</body>
+<!-- Danielle commented code -->
+<!-- <style>
     html, body
     {
       height: 100%;
@@ -59,7 +81,7 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
-  </style>
+  </style> -->
    <footer>
     <%- include('chat') -%>
 </footer>

@@ -1,11 +1,17 @@
-<header>
-  <%- include('navigationHeader') -%>
-  <!-- really -->
-<link rel="stylesheet" href="/css/bootstrap.min.css" />
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <header>
+    <%- include('navigationHeader') -%>
+    <!-- really -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  </header>
 
-<body>
-  <style>
+   <!-- Danielle commented -->
+  <!-- <style>
     html, body
     {
       height: 100%;
@@ -19,9 +25,24 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
+  </style> -->
+
+  <!-- Danielle added style -->
+  <style>
+    body {
+        background-color: white;
+        color: black;
+        padding: 5px;
+        }
   </style>
-  <h1>Welcome to the Sunshine!</h1></body>
+</head>
+<body>
+  <h1>Welcome to the Sunshine!</h1>
   
+  
+</body>
 <footer>
   <%- include('chat') -%>
 </footer>
+</html>
+

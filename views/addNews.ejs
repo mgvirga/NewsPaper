@@ -5,7 +5,46 @@
     </header>
     <head>
         <h1>Please enter your news article</h1>
-        <style>
+        <!-- Danielle added style -->
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            padding: 5px;
+            }
+        /* Bordered form */
+        form {
+        border: 2px solid black;
+        text-align: center;
+        width: 50%;
+        margin: 0 auto;
+
+        }
+
+        /* Full-width inputs */
+        input[type=text] {
+        width: 50%;
+        padding: 5px 15px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid black;
+        box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button {
+        background-color: #4CAF50;
+        color: black;
+        padding: 10px 10px;
+        /* margin: 8px 0; */
+        /* border: none; */
+        cursor: pointer;
+        width: 15%;
+        }
+    </style>
+        
+        <!-- Danielle commented code -->
+        <!-- <style>
             .cool{ background-image: linear-gradient(white, blue) !important;}
             table 
             {
@@ -19,35 +58,43 @@
                 text-align: left;
                 padding: 20px;
             }
-        </style>
+        </style> -->
     </head>
     <body>
         <form method="POST">
             <p>
+                <h2>Add News Article</h2>
                 <label>
-                    Title<br>
-                    <input type="text" placeholder="title" id ="news" name="title"/>
+                    Title
                 </label>
+                <br>
+                <input type="text" placeholder="title" id ="news" name="title"/>
             </p>
             <p>
                 <label>
-                    Description<br>
-                    <input type="text" placeholder="description" id = "news" name="description"/>
+                    Description
                 </label>
+                <br>
+                <input type="text" placeholder="description" id = "news" name="description"/>
             </p>
             <p>
                 <label>
-                    Url<br>
-                    <input type="text" placeholder="url" id = "news" name="url"/>
+                    Url
                 </label>
+                <br>
+                <input type="text" placeholder="url" id = "news" name="url"/>
             </p>
             <p>
                 <label>
-                    Image Url<br>
+                    Image Url
+                </label>
+                <br>
                     <input type="text" placeholder="imageurl" id = "news" name="imageurl"/>
-                </label>
             </p>
-            <button type="submit">Add user</button>
+            <div>
+            <button type="submit">Add news</button>
+            </div>
+            <br>
         </form>
 
         <script>
@@ -55,7 +102,8 @@
                 $('#display').DataTable();
             });
         </script>
-        <style>
+        <!-- Danielle commented code -->
+        <!-- <style>
             html, body
             {
               height: 100%;
@@ -69,7 +117,7 @@
               background-repeat: no-repeat;
               background-size: cover;
             }
-          </style>
+          </style> -->
     </body>
    <footer>
     <%- include('chat') -%>

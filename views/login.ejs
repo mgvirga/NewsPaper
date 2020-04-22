@@ -11,19 +11,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project</title>
+    <!-- Danielle added style -->
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            padding: 5px;
+            }
+        /* Bordered form */
+        form {
+        border: 3px solid black;
+        text-align: center;
+        width: 50%;
+        margin: 0 auto;
+
+        }
+
+        /* Full-width inputs */
+        input[type=text], input[type=password] {
+        width: 75%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid black;
+        box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button {
+        background-color: #4CAF50;
+        color: black;
+        padding: 14px 20px;
+        /* margin: 8px 0; */
+        /* border: none; */
+        cursor: pointer;
+        width: 15%;
+        }
+    </style>
 </head>
 <body>
-    <form action="/" method="POST">
+    <form action="/login" method="POST">
         <div class = "finput">
-            <p >Welcome</p>
+            <h2>Login</h2>
         </div>
         <div class = "finput">
-            Enter a Valid email
+            <label>Enter a Valid email</label>
+            <br>
             <input type="text" name="email" required>
         </div>
 
         <div class = "finput">
-            Enter a Valid Password
+            <label>Enter a Valid Password</label>
+            <br>
             <input type="password" name="password" required>
         </div>
 
@@ -32,23 +71,24 @@
                 Login
             </button>
         </div>
-
+        <br>
         <div >
             <span >
                 <div class = "finput">
                 Don’t have an account?
                 </div>
             </span>
-
-            <a href="/register">
+            <!-- Danielle changed to sign-up -->
+            <a href="/sign-up">
             <div class="finput">
                 Sign Up
             </div>
             </a>
         </div>
+        <br>
     </form>
-
-    <style>
+<!-- Danielle commented -->
+    <!-- <style>
         .finput
         {
             background-color: black;
@@ -68,7 +108,7 @@
           background-repeat: no-repeat;
           background-size: cover;
         }
-      </style>
+      </style> -->
 </body>
 
 <footer>

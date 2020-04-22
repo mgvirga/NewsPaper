@@ -9,7 +9,7 @@ Router.get("/", (req, res)=>{
     NewsModel.find({}).then((docs)=>{
       
     res.render("addNews", { posts : docs, test : instances.admin });
-    console.log("The news article is  " + instances.username);
+    // console.log("The news article is  " + instances.username);
 
     })
 });
@@ -25,7 +25,7 @@ Router.post("/", (req, res)=>{
             imageurl : req.body.imageurl
         })
         User.save();
-        res.redirect("/addNews");
+        res.redirect("/newsBoard");
     }
     else
     {
