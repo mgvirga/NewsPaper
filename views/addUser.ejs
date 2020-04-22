@@ -1,5 +1,7 @@
 <html class="cool">
     <head>
+        <%- include('navigationHeader') -%>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
         <h1>Please enter the new user</h1>
         <style>
             .cool{ background-image: linear-gradient(white, blue) !important;}
@@ -45,23 +47,22 @@
             </p>
             <button type="submit">Add user</button>
         </form>
-
-        <script>
-            $(document).ready(function () {
-                $('#display').DataTable();
-            });
-        </script>
-    <br><br><br>
-   <ui>
-       <li><a href="/showItem">Show Item</a></li>
-       <li><a href="/addItem">Add Item</a></li>
-       <li><a href="/weather">Weather</a></li>
-       <% if(test){ %>
-
-        <li><a href="/showUser">Show User</a></li>
-        <li><a href="/addUser">Add User</a></li>
-        <% } %>
-   </ui>
+        <style>
+            html, body
+            {
+              height: 100%;
+              background-image: url("https://thumbs.dreamstime.com/b/abstract-background-news-hd-i-42499913.jpg");
+        
+              /* Full height */
+              height: 100%;
+        
+              /* Center and scale the image nicely */
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+          </style>
+    </body>
    <footer>
     <%- include('chat') -%>
 </footer>

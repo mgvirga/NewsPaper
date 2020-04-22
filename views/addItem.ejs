@@ -1,4 +1,8 @@
 <html class="cool">
+    <header>
+        <%- include('navigationHeader') -%>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    </header>
     <head>
         <h1>Please enter the Item</h1>
         <style>
@@ -45,17 +49,23 @@
                 $('#display').DataTable();
             });
         </script>
-    <br><br><br>
-    <ui>
-        <li><a href="/showItem">Show Item</a></li>
-        <li><a href="/addItem">Add Item</a></li>
-        <li><a href="/weather">Weather</a></li>
-        <% if(test){ %>
 
-            <li><a href="/showUser">Show User</a></li>
-            <li><a href="/addUser">Add User</a></li>
-        <% } %>
-    </ui>
+<style>
+    html, body
+    {
+      height: 100%;
+      background-image: url("https://ak4.picdn.net/shutterstock/videos/13881104/thumb/1.jpg");
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+    </body>
     <footer>
         <%- include('chat') -%>
     </footer>

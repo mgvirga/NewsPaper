@@ -1,8 +1,10 @@
-<h1>User</h1>
-
-
 <html class="cool">
+    <header>
+        <%- include('navigationHeader') -%>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
+        <h1>User</h1>
+    </header>
 <head>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -52,17 +54,24 @@
             $('#display').DataTable();
         });
     </script>
-</body>
-<ui>
-    <li><a href="/showItem">Show Item</a></li>
-    <li><a href="/addItem">Add Item</a></li>
-    <li><a href="/weather">Weather</a></li>
-    <% if(test){ %>
 
-        <li><a href="/showUser">Show User</a></li>
-        <li><a href="/addUser">Add User</a></li>
-    <% } %>
-</ui>
+<style>
+    html, body
+    {
+      height: 100%;
+      background-image: url("https://petapixel.com/assets/uploads/2017/05/RelaxingPhotographyCoastalSunrise-800x533.jpg");
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+</body>
+
 <footer>
     <%- include('chat') -%>
 </footer>

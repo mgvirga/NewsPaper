@@ -8,8 +8,7 @@ Router.get("/", (req, res)=>{
     test = instances.admin;
     UserModel.find({}).then((docs)=>{
       
-    res.render("addUser", { posts : docs, test : instances.admin });
-    console.log("The name of this user is " + instances.username);
+    res.render("addUser", { posts : docs });
 
     })
 });

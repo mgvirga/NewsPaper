@@ -36,7 +36,7 @@ Router.get('/',(req,res) => {
     // Get user details after that get followers from URL
     dataPromise.then(JSON.parse)
                .then(function(result) {
-                    res.render('weather',{ result,title:'Weather', test : instances.admin })
+                    res.render('weather',{ result,title:'Weather' })
                 })
 })
 

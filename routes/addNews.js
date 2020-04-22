@@ -17,7 +17,7 @@ Router.get("/", (req, res)=>{
 Router.post("/", (req, res)=>{
     if(req.body.title !== "" &&  req.body.description !== "" && req.body.url !== "" && req.body.imageurl !== "")
     {
-        const User = new UserModel
+        const User = new NewsModel
         ({
             title : req.body.title,
             description : req.body.description,

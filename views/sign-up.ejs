@@ -1,5 +1,9 @@
 <!-- Danielle added signup page for registration -->
 <!DOCTYPE html>
+<header>
+    <%- include('navigationHeader') -%>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+</header>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,6 +37,23 @@
             </a>
         </div>
     </form>
+    <style>
+        html, body
+        {
+          height: 100%;
+          background-image: url("https://r-cf.bstatic.com/images/hotel/max1024x768/231/231306927.jpg");
     
+          /* Full height */
+          height: 100%;
+    
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      </style>
 </body>
+<footer>
+    <%- include('chat') -%>
+</footer>
 </html>

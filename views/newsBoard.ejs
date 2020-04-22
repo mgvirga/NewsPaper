@@ -1,6 +1,9 @@
 
 <html>
-
+    <header>
+        <%- include('navigationHeader') -%>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    </header>
 <head>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -35,6 +38,22 @@
             $('#newsBoard').DataTable();
         });
     </script>
+
+<style>
+    html, body
+    {
+      height: 100%;
+      background-image: url("https://images.radio.com/wxrtfm/ocean_beach.jpg");
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
 </body>
 <footer>
     <%- include('chat') -%>

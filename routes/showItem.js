@@ -9,7 +9,7 @@ moment().format();
 Router.get("/", (req, res)=>{
     test = instances.admin;
     FoodModel.find({}).then((docs)=>{
-       res.render("showItem", { posts : docs, test : instances.admin });
+       res.render("showItem", { posts : docs });
    })
 });
 

@@ -7,7 +7,7 @@ let instances = require("../util/userInstance");
 Router.get("/", (req, res)=>{
     test = instances.admin;
     ContactModel.find({}).then((docs) => {
-        res.render("submitQuery", { posts : docs, test : instances.admin });
+        res.render("submitQuery", { posts : docs });
 
     })
 });

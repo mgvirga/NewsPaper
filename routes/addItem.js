@@ -7,9 +7,7 @@ Router.get("/", (req, res)=>{
     test = instances.admin;
     FoodModel.find({}).then((docs)=>{
       
-    res.render("addItem", { posts : docs, test : instances.admin });
-    console.log("The name of this user is " + instances.username);
-
+    res.render("addItem", { posts : docs });
     })
 });
 

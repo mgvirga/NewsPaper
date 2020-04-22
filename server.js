@@ -21,6 +21,9 @@ const showUser = require("./routes/showUser");
 const showItem = require("./routes/showItem");
 const showWeather = require("./routes/weather");
 const submitQuery = require("./routes/submitQuery");
+const addNews = require("./routes/addNews");
+const home = require("./routes/home");
+const signup = require("./routes/signup")
 
 app.set("view engine", "ejs");
 
@@ -36,6 +39,12 @@ app.use("/showUser", showUser);
 app.use("/showItem", showItem);
 app.use("/weather", showWeather);
 app.use("/submitQuery", submitQuery);
+app.use("/addNews", addNews);
+app.use("/home", home);
+app.use("/sign-up", signup)
+
+//to use bootstrap
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 // import http from 'http';
 const http = require('http');

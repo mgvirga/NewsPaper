@@ -1,4 +1,8 @@
 <html class="cool">
+    <header>
+        <%- include('navigationHeader') -%>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    </header>
     <head>
         <h1>Please enter your news article</h1>
         <style>
@@ -51,19 +55,22 @@
                 $('#display').DataTable();
             });
         </script>
-    <br><br><br>
-   <ui>
-       <li><a href="/showItem">Show Item</a></li>
-       <li><a href="/addNews">Add News</a></li>
-       <li><a href="/addItem">Add Item</a></li>
-       <li><a href="/weather">Weather</a></li>
-       <li><a href="/newsBoard">News</a></li>
-       <% if(test){ %>
-
-        <li><a href="/showUser">Show User</a></li>
-        <li><a href="/addUser">Add User</a></li>
-        <% } %>
-   </ui>
+        <style>
+            html, body
+            {
+              height: 100%;
+              background-image: url("https://c8.alamy.com/comp/KFEF4Y/medical-abstract-background-suitable-for-healthcare-and-medical-news-KFEF4Y.jpg");
+        
+              /* Full height */
+              height: 100%;
+        
+              /* Center and scale the image nicely */
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+          </style>
+    </body>
    <footer>
     <%- include('chat') -%>
 </footer>

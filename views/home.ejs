@@ -1,27 +1,27 @@
-<!-- also to get bootstrap working -->
+<header>
+  <%- include('navigationHeader') -%>
+  <!-- really -->
 <link rel="stylesheet" href="/css/bootstrap.min.css" />
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" >Sunshine News</a>
-    </div>
+</header>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="/home">Home </a></li>
-        <li><a href="/addUser">Add User</a></li>
-        <li><a href="/showUser">Show User</a></li>
-        <li><a href="/addItem">Add Item </a></li>
-        <li><a href="/showItem">Show Item </a></li>
-      </ul>
-  </div><!-- /.container-fluid -->
-</nav>
+<body>
+  <style>
+    html, body
+    {
+      height: 100%;
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTsrgzceU1Vv_FtHTEJQY446gO5Vyrq3nvvKroaarl7OKgkq11w&usqp=CAU");
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+  <h1>Welcome to the Sunshine!</h1></body>
+  
+<footer>
+  <%- include('chat') -%>
+</footer>

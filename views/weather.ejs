@@ -1,10 +1,11 @@
 <html lang="en">
 	<head>
+        <header>
+            <%- include('navigationHeader') -%>
+            <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        </header>
 	<style>
-        html
-        {
-            background-image: linear-gradient(white, blue);
-        }
+     
         table 
         {
             font-family: arial, sans-serif;
@@ -16,6 +17,8 @@
             border: 5px solid black;
             text-align: left;
             padding: 20px;
+            background-color: black;
+            color: yellow;
         }
 
     </style>
@@ -31,7 +34,6 @@
                 <th>The min temperature</th>
                 <th>The main weather</th>
                 <th>The date</th>
-                <th>whatever dt is</th>
                 <th>The humidity</th>
                 <th>The Image</th>
             </tr>
@@ -44,27 +46,27 @@
                 <th><%=result.list[i].temp.min%>°C</th>
                 <th><%=result.list[i].weather[0].main%></th>
                 <th><%=Date(result.list[i].dt)%></th>
-                <th><%=Date(result.list[i].dt)%></th>
                 <th><%=result.list[i].humidity%></th>
                 <th><img class="card-img-top" src='https://openweathermap.org/img/w/<%=result.list[i].weather[0].icon%>.png' alt="weather"/></th>
             </tr>
             <%}%>
     </tbody>
     </table>
-
-    <br><br><br>
- <ui>
-       <li><a href="/showItem">Show Item</a></li>
-       <li><a href="/addItem">Add Item</a></li>
-       <li><a href="/weather">Weather</a></li>
-     <li><a href="/submitQuery">submitQuery</a></li>
-       <% if(test){ %>
-
-        <li><a href="/showUser">Show User</a></li>
-        <li><a href="/addUser">Add User</a></li>
-    <% } %>
-   </ui>
-        
+    <style>
+        html, body
+        {
+          height: 100%;
+          background-image: url("https://www.bensound.com/bensound-img/relaxing.jpg");
+    
+          /* Full height */
+          height: 100%;
+    
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      </style>
     </body>
     <footer>
         <%- include('chat') -%>
