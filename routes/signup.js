@@ -9,7 +9,7 @@ const config = require('../config.js');
 
 
 Router.get("/", (req, res)=>{
-    test = instances.admin;
+    // test = instances.admin;
     UserModel.find({}).then((docs)=>{
     res.render("signup", { posts : docs });
     })
@@ -36,7 +36,7 @@ Router.post('/', function(req, res) {
         expiresIn: 86400 // expires in 24 hours
       });
       const string = encodeURIComponent('Success Fully Register Please Login');
-      res.redirect("/home");
+      res.redirect("/");
     }); 
   });
   

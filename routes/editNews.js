@@ -5,18 +5,47 @@ const UserModel = require("../model/user");
 const NewsModel = require("../model/news");
 let instances = require("../util/userInstance");
 
+// Danielle add for authentication
+const jwt = require('jsonwebtoken');
+const config = require('../config.js');
+
 
 //get id for edit
 Router.get("/:id", (req, res) => {
-    const requestedId = req.params.id;
-    console.log(req.body);
-    NewsModel.findOne({
-      _id: requestedId
-    }, (err, post) => {
-      if (!err) {
-        res.render("editNews.ejs", {posts:post});
-      }
-    });
+  // Danielle added verification
+
+    // get token
+    var token = localStorage.getItem('authtoken')
+    if (!token) {
+        res.redirect('/')
+    }
+    // verify token
+    jwt.verify(token, config.secret, function(err, decoded) {
+    if (err) {
+        res.redirect('/')
+    };
+       UserModel.findById(decoded.id, { password: 0 }, function (err, user) {
+          if (err) {res.redirect('/')}
+          if (!user) {res.redirect('/')}
+          console.log(user.accountType);
+          if(user.accountType === true )
+          {
+            const requestedId = req.params.id;
+            console.log(req.body);
+              NewsModel.findOne({
+                _id: requestedId
+                }, (err, post) => {
+                  if (!err) {
+                    res.render("editNews.ejs", {posts:post});
+                  }
+              });
+          }
+          else
+              {
+                     res.redirect('/')
+              }
+        })
+      })
   });
   
 
