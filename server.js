@@ -26,6 +26,8 @@ app.use(bodyParser.json({ type : "application/json" }))
 app.use(bodyParser.text({ type : "text/html" }))
 app.use(bodyParser.urlencoded({ extended : true }))
 
+// to get boostrap working
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 //defining ejs files for routing
 app.use("/", login);
