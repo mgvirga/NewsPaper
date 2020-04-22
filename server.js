@@ -22,6 +22,7 @@ const addNews = require("./routes/addNews");
 const home = require("./routes/home");
 const signup = require("./routes/signup");
 const newsBoard = require("./routes/newsBoard");
+const sports = require("./routes/sports");
 
 app.set("view engine", "ejs");
 
@@ -36,8 +37,9 @@ app.use("/weather", showWeather);
 app.use("/submitQuery", submitQuery);
 app.use("/addNews", addNews);
 app.use("/home", home);
-app.use("/sign-up", signup)
-app.use("/newsBoard", newsBoard)
+app.use("/sign-up", signup);
+app.use("/newsBoard", newsBoard);
+app.use("/sports", sports);
 
 //to use bootstrap
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));

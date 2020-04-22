@@ -1,0 +1,104 @@
+<h2>Thanks for the news api
+    https://newsapi.org/docs/get-started</h2>
+<% console.log(result.status) 
+   console.log(result.articles.length)
+%>
+<style>
+    .color
+    {
+        font: color = red;
+    }
+</style>
+<html lang="en">
+	<head>
+        <header>
+            <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        </header>
+	<style>
+     
+        table 
+        {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th 
+        {
+            border: 5px solid black;
+            text-align: left;
+            padding: 20px;
+            background-color: black;
+            color: yellow;
+        }
+
+    </style>
+
+	</head>
+	<body>
+        <!-- <table>
+        <thead>
+            <tr>
+                <th>Article Title:</th>
+                <th>Article Author:</th>
+                <th>Article Description</th>
+                <th>Article Link</th>
+                <th>Publishing Date</th>
+                <th>Content</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <%for(let i=0; i<result.articles.length;i++){%>
+                <th><%=result.articles[i].title%></th>
+                <th><%=result.articles[i].author%></th>
+                <th><%=result.articles[i].description%></th>
+                <th><button  onclick="location.href='<%= result.articles[i].url %>'"><%=result.articles[i].title%></button></th>
+                <th><%=result.articles[i].publishedAt%></th>
+                <th><%=result.articles[i].content%></th>
+                <th><img src=<%=result.articles[i].urlToImage%>/></th>
+            </tr>
+
+            <%}%>
+    </tbody>
+    </table> -->
+    <style>
+        html, body
+        {
+          height: 100%;
+          background-image: url("https://www.bensound.com/bensound-img/relaxing.jpg");
+    
+          /* Full height */
+          height: 100%;
+    
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      </style>
+    </body>
+    <footer>
+    </footer>
+
+    <img src=action = initMap()>
+    <script>
+        function initMap() {
+  var myLatLng = {lat: -25.363, lng: 131.044};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+
+    </script>
+</html>
+
+

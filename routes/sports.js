@@ -1,16 +1,17 @@
 const express = require("express");
 const Router = express.Router();
-let instances = require("../util/userInstance");
 const request = require('request');
 
-const city = "alpharetta"
+var sportsUrl = 'http://newsapi.org/v2/top-headlines?' +
+          'country=us&' +
+          'apiKey=5cf8d127c7e34870ae319350ab2ac918';
 
-const weatherUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&mode=json&units=metric&cnt=5&appid=fbf712a5a83d7305c3cda4ca8fe7ef29";
 
-function getWeather(url) {
+
+function getSports(url) {
     // Setting URL and headers for request
     var options = {
-        url: weatherUrl,
+        url: sportsUrl,
         headers: {
             'User-Agent': 'request'
         }
@@ -29,15 +30,14 @@ function getWeather(url) {
 }
 // Weather Api Route
 Router.get('/',(req,res) => {
-    var dataPromise = getWeather();
+    var dataPromise = getSports();
     // Get user details after that get followers from URL
     dataPromise.then(JSON.parse)
-               .then(function(result) {
-                    res.render('home',{ result, title: 'Weather' })
+            .then(function(result) {
+        res.render('sports',{ result, title: 'reuters' })
                     
-                })
+    })
 })
 
+    
 module.exports = Router;
-
-//The point of this javascript is to show the users the weather
