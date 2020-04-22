@@ -1,7 +1,5 @@
 const express = require("express");
 const Router = express.Router();
-const UserModel = require("../model/user");
-const FoodModel = require("../model/food");
 let instances = require("../util/userInstance");
 const request = require('request');
 
@@ -32,7 +30,6 @@ function getWeather(url) {
 // Weather Api Route
 Router.get('/',(req,res) => {
     var dataPromise = getWeather();
-    test = instances.admin;
     // Get user details after that get followers from URL
     dataPromise.then(JSON.parse)
                .then(function(result) {
