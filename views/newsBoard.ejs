@@ -27,7 +27,6 @@
             <th><%= post.title %></th>
             <th><%= post.description %></th>
             <th><%= post.date %></th>
-            <th><button type="submit">Add News</button></th>
         </tr>
         <%});%>
 </tbody>
@@ -35,7 +34,7 @@
 
     <script>
         $(document).ready(function () {
-            $('#newsBoard').DataTable();
+            $('#display').DataTable();
         });
     </script>
 

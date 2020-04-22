@@ -21,7 +21,8 @@ const showWeather = require("./routes/weather");
 const submitQuery = require("./routes/submitQuery");
 const addNews = require("./routes/addNews");
 const home = require("./routes/home");
-const signup = require("./routes/signup")
+const signup = require("./routes/signup");
+const newsBoard = require("./routes/newsBoard");
 
 app.set("view engine", "ejs");
 
@@ -38,6 +39,7 @@ app.use("/submitQuery", submitQuery);
 app.use("/addNews", addNews);
 app.use("/home", home);
 app.use("/sign-up", signup)
+app.use("/newsBoard", newsBoard)
 
 //to use bootstrap
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
