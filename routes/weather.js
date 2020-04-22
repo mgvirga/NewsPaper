@@ -2,10 +2,6 @@ const express = require("express");
 const Router = express.Router();
 let instances = require("../util/userInstance");
 const request = require('request');
-// Danielle add for authentication
-const UserModel = require("../model/user");
-const jwt = require('jsonwebtoken');
-const config = require('../config.js');
 
 const city = "alpharetta"
 
@@ -33,38 +29,12 @@ function getWeather(url) {
 }
 // Weather Api Route
 Router.get('/',(req,res) => {
-    // Danielle added verification
-
-    // get token
-    var token = localStorage.getItem('authtoken')
-    if (!token) {
-        res.redirect('/')
-    }
-    // verify token
-    jwt.verify(token, config.secret, function(err, decoded) {
-    if (err) {
-        res.redirect('/')
-    };
-       UserModel.findById(decoded.id, { password: 0 }, function (err, user) {
-              if (err) {res.redirect('/')}
-              if (!user) {res.redirect('/')}
-              console.log(user.accountType);
-              if(user.accountType === true )
-              {
-                var dataPromise = getWeather();
-                // Get user details after that get followers from URL
-                dataPromise.then(JSON.parse)
-                        .then(function(result) {
-                                res.render('weather',{ result,title:'Weather' })
-                            })
-              }
-              else
-              {
-                     res.redirect('/')
-              }
-       })
-    })
-
+    var dataPromise = getWeather();
+    // Get user details after that get followers from URL
+    dataPromise.then(JSON.parse)
+               .then(function(result) {
+                    res.render('weather',{ result,title:'Weather' })
+                })
 })
 
 module.exports = Router;

@@ -43,7 +43,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Username</th>
-                <th>Edit</th>
+                <th>Edit/Delete</th>
                 
             </tr>
         </thead>
@@ -55,6 +55,17 @@
                     <td><%=post.username%></td>
                     <td>
                         <button name="edit" onclick="location.href='/editUser/<%= post._id %>'">Edit</button>
+                        <button name="delete" onclick="deleteAlert()">Delete</button>
+                <!-- Danielle added delete Script -->
+                <script>
+        
+                    function deleteAlert()
+                    {
+                        if (confirm("Do you want to delete user?") == true) {
+                            location.href='/showUser/delete/<%= post._id %>'
+                        }
+                    }
+               </script>
                     </td>
                 </tr>
             <%});%>

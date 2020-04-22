@@ -52,6 +52,17 @@
             <td><%= post.date %></td>
             <td>
                 <button name="edit" onclick="location.href='/editNews/<%= post._id %>'">Edit</button>
+                <button name="delete" onclick="deleteAlert()">Delete</button>
+                <!-- Danielle added delete Script -->
+                <script>
+        
+                    function deleteAlert()
+                    {
+                        if (confirm("Do you want to delete user?") == true) {
+                            location.href='/newsBoard/delete/<%= post._id %>'
+                        }
+                    }
+               </script>
             </td>
         </tr>
         <%});%>
