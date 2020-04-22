@@ -1,14 +1,11 @@
 const express = require("express");
 const Router = express.Router();
 const NewsModel = require("../model/news");
-<<<<<<< HEAD
 let instances = require("../util/userInstance");
 // Danielle add for authentication
 const UserModel = require("../model/user");
 const jwt = require('jsonwebtoken');
 const config = require('../config.js');
-=======
->>>>>>> 2c2d19886d4363f3890b986d0309ea874778a8bf
 
 Router.get("/", (req, res)=>{
     // Danielle added verification
