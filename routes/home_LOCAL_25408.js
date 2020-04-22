@@ -1,6 +1,5 @@
 const express = require("express");
 const Router = express.Router();
-<<<<<<< HEAD
 // Danielle add for authentication
 const UserModel = require("../model/user");
 const jwt = require('jsonwebtoken');
@@ -34,17 +33,6 @@ Router.get("/", (req, res)=>{
               }
        });
     });
-=======
-const NewsModel = require("../model/news");
-
-
-Router.get("/", (req, res)=>{
-       NewsModel.find({}).then((docs)=>{
-              console.log(docs);
-              res.render("home", { posts : docs });
-})
->>>>>>> 2c2d19886d4363f3890b986d0309ea874778a8bf
 });
-
 
 module.exports = Router;
