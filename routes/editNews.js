@@ -8,6 +8,8 @@ let instances = require("../util/userInstance");
 // Danielle add for authentication
 const jwt = require('jsonwebtoken');
 const config = require('../config.js');
+const bcrypt = require('bcryptjs');
+
 
 
 //get id for edit
@@ -27,11 +29,11 @@ Router.get("/:id", (req, res) => {
        UserModel.findById(decoded.id, { password: 0 }, function (err, user) {
           if (err) {res.redirect('/')}
           if (!user) {res.redirect('/')}
-          console.log(user.accountType);
+          // console.log(user.accountType);
           if(user.accountType === true )
           {
             const requestedId = req.params.id;
-            console.log(req.body);
+            // console.log(req.body);
               NewsModel.findOne({
                 _id: requestedId
                 }, (err, post) => {
@@ -52,9 +54,9 @@ Router.get("/:id", (req, res) => {
 // edit News
 Router.post('/:id', function(req, res) {
     const requestedId = req.params.id;
-    console.log("id", requestedId)
+    // console.log("id", requestedId)
     // update a News
-    console.log("req.body",req.body)
+    // console.log("req.body",req.body)
     NewsModel.findByIdAndUpdate(requestedId,{$set: {
       title: req.body.title,
       description: req.body.description,
@@ -66,7 +68,7 @@ Router.post('/:id', function(req, res) {
       {
         console.error(err);
       }
-      console.log("data",data);
+      // console.log("data",data);
     })
     // redirect to the dashboard
     // const string = encodeURIComponent('Success adding News');
