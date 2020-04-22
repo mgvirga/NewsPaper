@@ -15,7 +15,6 @@ const weatherUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + 
 
 //defining js file for routing
 const login = require("./routes/index");
-const addUser = require("./routes/addUser");
 const showUser = require("./routes/showUser");
 const showWeather = require("./routes/weather");
 const submitQuery = require("./routes/submitQuery");
@@ -32,7 +31,6 @@ app.use(bodyParser.urlencoded({ extended : true }));
 
 //defining ejs files for routing
 app.use("/", login);
-app.use("/addUser", addUser);
 app.use("/showUser", showUser);
 app.use("/weather", showWeather);
 app.use("/submitQuery", submitQuery);

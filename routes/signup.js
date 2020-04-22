@@ -6,7 +6,7 @@ let instances = require("../util/userInstance");
 Router.get("/", (req, res)=>{
     test = instances.admin;
     UserModel.find({}).then((docs)=>{
-    res.render("sign-up", { posts : docs });
+    res.render("signup", { posts : docs });
     })
 });
 

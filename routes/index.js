@@ -34,7 +34,7 @@ Router.post('/', function(req, res) {
 });
 
 Router.get('/register',  (req, res) => {
-    res.render('sign-up.ejs')
+    res.render('signup.ejs')
  });
 // Register User
 Router.post('/register', function(req, res) {
