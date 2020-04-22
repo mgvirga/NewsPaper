@@ -1,0 +1,83 @@
+<!-- Danielle created this page for edit news -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit News</title>
+
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            padding: 5px;
+            }
+        /* Bordered form */
+        form {
+        border: 3px solid black;
+        text-align: center;
+        width: 50%;
+        margin: 0 auto;
+
+        }
+
+        /* Full-width inputs */
+        input[type=text], input[type=password] {
+        width: 75%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid black;
+        box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button {
+        background-color: #4CAF50;
+        color: black;
+        padding: 10px 10px;
+        /* margin: 8px 0; */
+        /* border: none; */
+        cursor: pointer;
+        width: 15%;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/editUser/<%=posts._id%>">
+        <!-- <input  type="hidden name="_id" value="<%=posts._id%>"/> -->
+        <p>
+            <label>Name</label>
+            <input type="text" name="name" value="<%=posts.name%>" required/>
+        </p>
+        <p>
+            <label>Username</label>
+            <input type="text" name="username" value="<%=posts.username%>" required>
+        </p>
+        <p>
+            <label>Email</label>
+            <input type="email" name="email" value="<%=posts.email%>" required/>
+        </p>
+        <p>
+            <label>Password</label>
+            <input type="password" name="password" required/>
+        </p>
+        <p>
+            <label>Account Type</label>
+            <input type="radio" name="accountType" value="false"/>User
+            <input type="radio" name="accountType" value="true"/>Admin     
+        </p>
+
+        <button type="submit">Update</button>
+        <br>
+        <div>
+            <a href="/showUser">
+                Cancel
+            </a>
+        </div>
+        <br>
+    </form>
+    
+</body>
+</html>

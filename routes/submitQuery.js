@@ -5,7 +5,7 @@ const ContactModel = require("../model/contact");
 let instances = require("../util/userInstance");
 
 Router.get("/", (req, res)=>{
-    test = instances.admin;
+    // test = instances.admin;
     ContactModel.find({}).then((docs) => {
         res.render("submitQuery", { posts : docs });
 

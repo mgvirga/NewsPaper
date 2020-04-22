@@ -28,37 +28,47 @@ Router.post('/', function(req, res) {
             expiresIn: 86400 // expires in 24 hours
         });
         localStorage.setItem('authtoken', token)
-        res.redirect("/showUser");
+        res.redirect("/home");
       }
     });
 });
 
-Router.get('/register',  (req, res) => {
-    res.render('signup.ejs')
- });
-// Register User
-Router.post('/register', function(req, res) {
+
+// Danielle moved below code to routes/signup.js 
+// Router.get('/register',  (req, res) => {
+//     res.render('signup.ejs')
+//  });
+ 
+// // Register User
+// Router.post('/register', function(req, res) {
   
-    const hashedPassword = bcrypt.hashSync(req.body.password, 8);
-    // create a User
-    UserModel.create({
-      name: req.body.name,
-      username : req.body.username,
-      email : req.body.email,
-      password : hashedPassword,    
-      accountType: true
-    },
-    function (err, user) {
-      if (err) return res.status(500).send("There was a problem registering the user.")
-      // create a token
-      var token = jwt.sign({ id: user._id }, config.secret, {
-        expiresIn: 86400 // expires in 24 hours
-      });
-      const string = encodeURIComponent('Success Fully Register Please Login');
-      res.redirect("/");
-    }); 
-  });
+//     const hashedPassword = bcrypt.hashSync(req.body.password, 8);
+//     // create a User
+//     UserModel.create({
+//       name: req.body.name,
+//       username : req.body.username,
+//       email : req.body.email,
+//       password : hashedPassword,    
+//       accountType: true
+//     },
+//     function (err, user) {
+//       if (err) return res.status(500).send("There was a problem registering the user.")
+//       // create a token
+//       var token = jwt.sign({ id: user._id }, config.secret, {
+//         expiresIn: 86400 // expires in 24 hours
+//       });
+//       const string = encodeURIComponent('Success Fully Register Please Login');
+//       res.redirect("/");
+//     }); 
+//   });
   
+
+// Danielle added logout method to remove the authtoken
+  // get method to logout
+ Router.get('/logout', (req,res) => {
+  localStorage.removeItem('authtoken');
+  res.redirect('/');
+})
 module.exports = Router;
 
 //This is the home page where the user logs in

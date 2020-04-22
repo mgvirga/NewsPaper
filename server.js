@@ -24,6 +24,11 @@ const signup = require("./routes/signup");
 const newsBoard = require("./routes/newsBoard");
 const sports = require("./routes/sports");
 
+// Danielle imported editNews and editUser
+const editNews = require("./routes/editNews");
+const editUser = require("./routes/editUser");
+
+
 app.set("view engine", "ejs");
 
 app.use(bodyParser.json({ type : "application/json" }));
@@ -31,7 +36,11 @@ app.use(bodyParser.text({ type : "text/html" }));
 app.use(bodyParser.urlencoded({ extended : true }));
 
 //defining ejs files for routing
+// Danielle added /login
 app.use("/", login);
+app.use("/home", home);
+app.use("/login", login);
+
 app.use("/showUser", showUser);
 app.use("/weather", showWeather);
 app.use("/submitQuery", submitQuery);
@@ -40,6 +49,10 @@ app.use("/home", home);
 app.use("/sign-up", signup);
 app.use("/newsBoard", newsBoard);
 app.use("/sports", sports);
+
+// Danielle added editNews  and editUser routes
+app.use("/editNews", editNews);
+app.use("/editUser", editUser);
 
 //to use bootstrap
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
