@@ -1,0 +1,45 @@
+<style>
+    .footerFormat {
+            padding-top: 20px;
+    
+    }
+
+    .leftFooter {
+            float: left;
+            border-radius: 25px;
+            width: 300px;
+            height: 450px;
+            background-color: black;
+            color: yellow;
+            padding: 10px;
+       
+
+    }
+
+
+    .rightFooter {
+            float: right;
+            width: 350px;
+    }
+
+</style>
+
+<footer class="footerFormat">
+    <div class="container">
+            <div class="row">
+                    <div class="col-sm-4">
+                            <div class="leftFooter">
+                                    <%- include('map')-%>
+
+                            </div>
+                    </div>
+
+                    <div class="rightFooter">
+                            <div class="col-sm-4">
+                                    <%- include('chat')-%>
+                            </div>
+                    </div>
+
+            </div>
+    </div>
+</footer>

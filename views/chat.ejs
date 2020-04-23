@@ -1,17 +1,36 @@
 
 <!-- /////////////////////////      SCRIPT      ///////////////////////////// -->
 <style>
-    h1, h2
+    h3
     {
-        color: black;
-        font-family: Verdana;
+        color: yellow;
     }
-    .footer
+    .chatBox
     {
-        background-color: transparent;
+        opacity: 0.8;
+        border-radius: 25px;
+        background-color: black;
+        height: auto;
+        width: 350px;
+        padding: 10px;
+   
     }
+    .MessageBox
+    {
+        border-radius: 25px;
+        height: 200px;
+        width: 300px;
+        padding: 5px;
+
+    }
+    input,button {
+        border-radius: 25px;
+        padding: 5px;
+    }
+
+
 </style>
-<div class = "footer">
+<div class = "chatBox">
     
 <script src="/socket.io/socket.io.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -20,7 +39,7 @@
 
     socket.on('chat', function (data) {
         var msg = new Date().toLocaleTimeString() + ", " + data.nick+':  '+data.message;
-        $('textarea').val($('textarea').val()+msg+'\n'); 
+        $('#MessageBox').val($('#MessageBox').val()+msg+'\n'); 
     });
 
     socket.on("userloggedin", (data)=>{
@@ -46,18 +65,18 @@
 
 <!-- /////////////////////////      HTML      ///////////////////////////// -->
     <div>
-            <h1>Message Others</h1>
+            <h3>Sunny Day Chats</h3>
             <p>
                 <input id="nickText" type="text"/>
                 <button id="nick">Set Nickname</button>
             </p>
-            <textarea style="height:150px;width:400px;"></textarea>
+            <textarea  id="MessageBox" class="MessageBox" ></textarea>
             <p>
                 <input id="chatText" type="text"/>
                 <button id="chat">Send Chat Message</button>
             </p>
         
-            <h2>Active User: <b id="listu"></b></h2>
+            <h3>Active User: <b id="listu"></b></h3>
             <p id="userlist">  
                
             </p>

@@ -1,8 +1,3 @@
-<h2>Thanks for the news api
-    https://newsapi.org/docs/get-started</h2>
-<% console.log(result.status) 
-   console.log(result.articles.length)
-%>
 <style>
     .color
     {
@@ -12,6 +7,10 @@
 <html lang="en">
 	<head>
         <header>
+            <%- include('navigationHeader') -%>
+
+            <h2>Thanks for the news api https://newsapi.org/docs/get-started</h2>
+
             <link rel="stylesheet" href="/css/bootstrap.min.css" />
         </header>
 	<style>
@@ -35,7 +34,7 @@
 
 	</head>
 	<body>
-        <!-- <table>
+        <table>
         <thead>
             <tr>
                 <th>Article Title:</th>
@@ -61,7 +60,7 @@
 
             <%}%>
     </tbody>
-    </table> -->
+    </table>
     <style>
         html, body
         {
@@ -83,22 +82,8 @@
 
     <img src=action = initMap()>
     <script>
-        function initMap() {
-  var myLatLng = {lat: -25.363, lng: 131.044};
-
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: myLatLng
-  });
-
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
-  });
-}
-
     </script>
+    <%- include('footer') -%>
 </html>
 
 

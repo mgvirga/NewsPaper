@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Lubbock Texas</title>
+    <meta name="viewport" content="initial-scale=0.8">
+    <meta charset="utf-8">
+    <style>
+      #map {
+        height: 250px;
+        width: 250px;
+
+      }
+
+    </style>
+  </head>
+  <div class="AboutUs">
+    <p>About Us:</p>
+    <p>Team Sunshine</p>
+    <p>Address: <a href="https://www.google.com/https://www.google.com/maps/dir//Kupinsky+District,+Novosibirsk+Oblast,+Russia/@54.3146402,76.7776842,9z/data=!4m8!4m7!1m0!1m5!1m1!1s0x42fdc5eb217eb687:0x4b5d0007f28e722b!2m2!1d77.3370956!2d54.384346">Kupinsky District, Novosibirsk Oblast, Russia</a></p>
+    <p>Email: sunshine@shine.com</p>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 54.384390, lng: 77.337090},
+          zoom: 17,
+        })
+        var marker = new google.maps.Marker({position: {lat: 54.384390, lng: 77.337090}});
+        marker.setMap(map);
+      
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKyRa0eFaoQVB7I0s_nwf83jR8cPTAzzY&callback=initMap"
+    async defer></script>
+  </div>
+</html>
