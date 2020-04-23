@@ -1,6 +1,5 @@
 const express = require("express");
 const Router = express.Router();
-<<<<<<< HEAD
 // Danielle add for authentication
 const UserModel = require("../model/user");
 const jwt = require('jsonwebtoken');
@@ -26,7 +25,12 @@ Router.get("/", (req, res)=>{
               // console.log(user.accountType);
               if(user.accountType === true )
               {
-                     res.render("home");
+                  // Danielle moved method from below into this if statment
+                NewsModel.find({}).then((docs)=>{
+                    console.log(docs);
+                    res.render("home", { posts : docs });
+                })
+                    //  res.render("home");
               }
               else
               {
@@ -34,17 +38,16 @@ Router.get("/", (req, res)=>{
               }
        });
     });
-=======
+})
 const NewsModel = require("../model/news");
 
-
-Router.get("/", (req, res)=>{
-       NewsModel.find({}).then((docs)=>{
-              console.log(docs);
-              res.render("home", { posts : docs });
-})
->>>>>>> 2c2d19886d4363f3890b986d0309ea874778a8bf
-});
+// Danielle moved this section into if statement above with (user.accountType ==true)
+// Router.get("/", (req, res)=>{
+//        NewsModel.find({}).then((docs)=>{
+//               console.log(docs);
+//               res.render("home", { posts : docs });
+// })
+// });
 
 
 module.exports = Router;

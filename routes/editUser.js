@@ -8,6 +8,9 @@ let instances = require("../util/userInstance");
 const jwt = require('jsonwebtoken');
 const config = require('../config.js');
 const bcrypt = require('bcryptjs');
+const LocalStorage = require('node-localstorage').LocalStorage;
+localStorage = new LocalStorage('./scratch');
+
 
 
 //get id for edit
@@ -42,22 +45,24 @@ Router.get("/:id", (req, res) => {
               });
             }
             else
-              {
-                     res.redirect('/')
+              {    
+                res.redirect('/logout');
+
               }
         })
       })
   });
   
 
+  // Danielle fixed the token bug
 // edit News
 Router.post('/:id', function(req, res) {
 
   // Danielle hashed password of update User
   const hashedPassword = bcrypt.hashSync(req.body.password, 8);
 
+  
     const requestedId = req.params.id;
-    // console.log("id", requestedId)
     // update a News
     console.log("req.body",req.body)
     UserModel.findByIdAndUpdate(requestedId,{$set: {
@@ -73,10 +78,21 @@ Router.post('/:id', function(req, res) {
         console.error(err);
       }
       // console.log("data",data);
+
+      console.log("new account type: "+data.accountType);
+    if(data.accountType == false)
+    {
+      localStorage.removeItem('authtoken'); 
+      res.redirect('/')
+
+    }
+    else
+    {
+      res.redirect("/showUser");
+    }
+      
     })
-    // redirect to the dashboard
-    // const string = encodeURIComponent('Success adding News');
-    res.redirect("/showUser");
+    
   });
 
 module.exports = Router;

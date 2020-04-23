@@ -28,7 +28,8 @@ Router.get("/", (req, res)=>{
               if(user.accountType === true )
               {
                 NewsModel.find({}).then((docs)=>{     
-                    res.render("addNews", { posts : docs, test : instances.admin });
+                    res.render("addNews", { posts : docs });
+                    //, test : instances.admin
                     // console.log("The news article is  " + instances.username);
                 })
               }

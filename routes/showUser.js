@@ -5,6 +5,8 @@ let instances = require("../util/userInstance");
 // Danielle add for authentication
 const jwt = require('jsonwebtoken');
 const config = require('../config.js');
+const LocalStorage = require('node-localstorage').LocalStorage;
+localStorage = new LocalStorage('./scratch');
 
 Router.get("/", (req, res)=>{
     // test = instances.admin;
@@ -50,14 +52,20 @@ Router.get('/delete/:id', function(req, res) {
         {
             console.error(err);
         }
-        // console.log("data",data);
     })
-    // redirect to the dashboard
-    // const string = encodeURIComponent('Success adding News');
-    res.redirect("/showUser");
-
-  });
-  
+    // Danielle fixed bug
+      if(req.accountType == null)
+      {
+        localStorage.removeItem('authtoken'); 
+        res.redirect('/')
+      }
+      else
+      {
+         // redirect to the dashboard
+        // const string = encodeURIComponent('Success adding News');
+        res.redirect("/showUser")
+      }
+  });  
 
 
 module.exports = Router;

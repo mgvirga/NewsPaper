@@ -23,7 +23,8 @@ Router.post('/', function(req, res) {
       if (!user) { res.redirect("/");}
       else{
         const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
-        if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
+        // Danielle fixed authenitication bug
+        if (!passwordIsValid) return res.redirect("/");
         var token = jwt.sign({ id: user._id }, config.secret, {
             expiresIn: 86400 // expires in 24 hours
         });
