@@ -21,19 +21,6 @@
             padding: 3px;
             columns: 150px;
             }
-            /* .cool{ background-image: linear-gradient(white, blue) !important;}
-            table 
-            {
-                font-family: arial, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
-            td, th 
-            {
-                border: 5px solid black;
-                text-align: left;
-                padding: 20px;
-            } */
         </style>
     </head>
 <body>
@@ -57,7 +44,6 @@
                         <button name="edit" onclick="location.href='/editUser/<%= post._id %>'">Edit</button>
                         <button name="delete" onclick="deleteAlert('/showUser/delete/<%= post._id %>')">Delete</button>
                 
-                        <!-- Danielle added this script function for popup and delete 4/23 -->
                 <script>
                     function deleteAlert(url)
                     {
@@ -67,17 +53,6 @@
                         }
                     }
                </script>
-                        <!-- Danielle old delete Script
-                <script>
-        
-                    function deleteAlert()
-                    {
-                        if (confirm("Do you want to delete user?") == true) {
-
-                            location.href='/showUser/delete/<%= post._id %>'
-                        }
-                    }
-               </script> -->
                     </td>
                 </tr>
             <%});%>
@@ -89,21 +64,5 @@
         });
     </script>
 </body>
-<!-- Danielle commented code -->
-<!-- <style>
-    html, body
-    {
-      height: 100%;
-      background-image: linear-gradient(yellow, deepskyblue);
-
-      /* Full height */
-      height: 100%;
-
-      /* Center and scale the image nicely */
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-  </style> -->
   <%- include('footer') -%>
 </html>

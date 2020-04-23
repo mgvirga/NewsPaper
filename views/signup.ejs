@@ -1,4 +1,3 @@
-<!-- Danielle added signup page for registration -->
 <!DOCTYPE html>
 <header>
     <%- include('navigationHeader') -%>
@@ -9,7 +8,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-<!-- Danielle added style -->
     <style>
         body {
             background-color: white;
@@ -40,15 +38,12 @@
         background-color: #4CAF50;
         color: black;
         padding: 14px 20px;
-        /* margin: 8px 0; */
-        /* border: none; */
         cursor: pointer;
         width: 15%;
         }
     </style>
 </head>
 <body>
-    <!-- Danielle changed to sign-up -->
     <form method="POST" action="/sign-up">
         <h2>Register</h2>
         <p>
@@ -77,28 +72,11 @@
         <br>
         <div>
             Have an account?
-            <!-- Danielle changed to /login -->
             <a href="/login">
                 Login
             </a>
         </div>
         <br>
     </form>
-    <!-- Danielle commented style -->
-    <!-- <style>
-        html, body
-        {
-          height: 100%;
-          background-image: linear-gradient(yellow, deepskyblue);
-    
-          /* Full height */
-          height: 100%;
-    
-          /* Center and scale the image nicely */
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-      </style> -->
 </body>
 </html>
