@@ -29,11 +29,22 @@ Router.post('/', function(req, res) {
         const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
         // Danielle fixed authenitication bug
         if (!passwordIsValid) return res.redirect("/");
-        var token = jwt.sign({ id: user._id }, config.secret, {
-            expiresIn: 86400 // expires in 24 hours
-        });
-        localStorage.setItem('authtoken', token)
-        res.redirect("/home");
+        else{
+
+          // console.log("req.body.accountType" + user.accountType);
+          if(user.accountType == true)
+          {
+            var token = jwt.sign({ id: user._id }, config.secret, {
+              expiresIn: 86400 // expires in 24 hours
+            });
+            localStorage.setItem('authtoken', token)
+            res.redirect("/home");
+          }
+          else{
+            res.redirect("/");
+          }
+        }
+        
       }
     });
 });
