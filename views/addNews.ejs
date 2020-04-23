@@ -41,6 +41,16 @@
         cursor: pointer;
         width: 15%;
         }
+
+        h3 {
+                text-align: center;
+                font-size: 30px;
+            }
+        .sizing {
+            width: 300px;
+            height: 48px;
+            font-size: 16px;
+            }
     </style>
         
         <!-- Danielle commented code -->
@@ -58,42 +68,49 @@
                 text-align: left;
                 padding: 20px;
             }
+            -->
+        <!-- <style> 
+            form {
+                text-align: center;
+                font-size: 24px;
+                }
+            
         </style> -->
     </head>
     <body>
         <form method="POST">
             <p>
-                <h2>Add News Article</h2>
+                <h3>Add News Article</h3>
                 <label>
                     Title
                 </label>
                 <br>
-                <input type="text" placeholder="title" id ="news" name="title"/>
+                    <textarea required class="sizing" placeholder="Insert Title" id ="news" name="title"></textarea>
             </p>
             <p>
                 <label>
                     Description
                 </label>
                 <br>
-                <input type="text" placeholder="description" id = "news" name="description"/>
+                    <textarea required class="sizing" placeholder="Insert Description" id = "news" name="description"></textarea>
             </p>
             <p>
                 <label>
                     Url
                 </label>
                 <br>
-                <input type="text" placeholder="url" id = "news" name="url"/>
+                    <textarea required class="sizing" placeholder="Insert URL" id = "news" name="url"></textarea>
             </p>
             <p>
                 <label>
                     Image Url
                 </label>
                 <br>
-                    <input type="text" placeholder="imageurl" id = "news" name="imageurl"/>
+                    <textarea required class="sizing" placeholder="Insert Image URL" id = "news" name="imageurl" ></textarea>
             </p>
-            <div>
-            <button type="submit">Add news</button>
-            </div>
+            <br>
+
+            <button type="submit">Add News</button>
             <br>
         </form>
 
@@ -118,5 +135,7 @@
             }
           </style> -->
     </body>
-    <%- include('footer') -%>
+   <footer>
+    <%- include('chat') -%>
+</footer>
 </html>

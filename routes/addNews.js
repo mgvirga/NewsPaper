@@ -24,11 +24,12 @@ Router.get("/", (req, res)=>{
        UserModel.findById(decoded.id, { password: 0 }, function (err, user) {
               if (err) {res.redirect('/')}
               if (!user) {res.redirect('/')}
-              console.log(user.accountType);
+            //   console.log(user.accountType);
               if(user.accountType === true )
               {
                 NewsModel.find({}).then((docs)=>{     
-                    res.render("addNews", { posts : docs, test : instances.admin });
+                    res.render("addNews", { posts : docs });
+                    //, test : instances.admin
                     // console.log("The news article is  " + instances.username);
                 })
               }
