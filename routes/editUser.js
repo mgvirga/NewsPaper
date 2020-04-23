@@ -1,10 +1,9 @@
-// Danielle added page to edit news
+// imports
 const express = require("express");
 const Router = express.Router();
 const UserModel = require("../model/user");
 const NewsModel = require("../model/news");
 let instances = require("../util/userInstance");
-// Danielle add for authentication
 const jwt = require('jsonwebtoken');
 const config = require('../config.js');
 const bcrypt = require('bcryptjs');
@@ -13,11 +12,8 @@ localStorage = new LocalStorage('./scratch');
 
 
 
-//get id for edit
+//get id for edit user
 Router.get("/:id", (req, res) => {
-
-  // Danielle added verification
-
     // get token
     var token = localStorage.getItem('authtoken')
     if (!token) {
@@ -31,11 +27,9 @@ Router.get("/:id", (req, res) => {
        UserModel.findById(decoded.id, { password: 0 }, function (err, user) {
           if (err) {res.redirect('/')}
           if (!user) {res.redirect('/')}
-          // console.log(user.accountType);
           if(user.accountType === true )
           {
             const requestedId = req.params.id;
-            // console.log(req.body);
             UserModel.findOne({
               _id: requestedId
             }, (err, post) => {
@@ -53,17 +47,13 @@ Router.get("/:id", (req, res) => {
       })
   });
   
-
-  // Danielle fixed the token bug
 // edit News
 Router.post('/:id', function(req, res) {
 
-  // Danielle hashed password of update User
   const hashedPassword = bcrypt.hashSync(req.body.password, 8);
 
-  
     const requestedId = req.params.id;
-    // update a News
+    // update a User
     console.log("req.body",req.body)
     UserModel.findByIdAndUpdate(requestedId,{$set: {
       name: req.body.name,
@@ -77,7 +67,6 @@ Router.post('/:id', function(req, res) {
       {
         console.error(err);
       }
-      // console.log("data",data);
 
       console.log("new account type: "+data.accountType);
     if(data.accountType == false)

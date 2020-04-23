@@ -1,11 +1,9 @@
-// Danielle added page to edit news
+// imports
 const express = require("express");
 const Router = express.Router();
 const UserModel = require("../model/user");
 const NewsModel = require("../model/news");
 let instances = require("../util/userInstance");
-
-// Danielle add for authentication
 const jwt = require('jsonwebtoken');
 const config = require('../config.js');
 const bcrypt = require('bcryptjs');
@@ -14,8 +12,6 @@ const bcrypt = require('bcryptjs');
 
 //get id for edit
 Router.get("/:id", (req, res) => {
-  // Danielle added verification
-
     // get token
     var token = localStorage.getItem('authtoken')
     if (!token) {
@@ -26,14 +22,15 @@ Router.get("/:id", (req, res) => {
     if (err) {
         res.redirect('/')
     };
+      // find user
        UserModel.findById(decoded.id, { password: 0 }, function (err, user) {
           if (err) {res.redirect('/')}
           if (!user) {res.redirect('/')}
-          // console.log(user.accountType);
+
+          // check accountType 
           if(user.accountType === true )
           {
             const requestedId = req.params.id;
-            // console.log(req.body);
               NewsModel.findOne({
                 _id: requestedId
                 }, (err, post) => {
@@ -51,12 +48,10 @@ Router.get("/:id", (req, res) => {
   });
   
 
-// edit News
+// post id for edit News
 Router.post('/:id', function(req, res) {
     const requestedId = req.params.id;
-    // console.log("id", requestedId)
     // update a News
-    // console.log("req.body",req.body)
     NewsModel.findByIdAndUpdate(requestedId,{$set: {
       title: req.body.title,
       description: req.body.description,
@@ -68,10 +63,8 @@ Router.post('/:id', function(req, res) {
       {
         console.error(err);
       }
-      // console.log("data",data);
     })
-    // redirect to the dashboard
-    // const string = encodeURIComponent('Success adding News');
+    // redirect to the newsBoard
     res.redirect("/newsBoard");
   });
 
