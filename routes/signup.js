@@ -12,7 +12,7 @@ const config = require('../config.js');
 Router.get("/", (req, res)=>{
     // test = instances.admin;
     UserModel.find({}).then((docs)=>{
-    res.render("signup", { posts : docs });
+    res.render("signup", { posts : docs, val : instances.signedIn });
     })
 });
 

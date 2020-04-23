@@ -8,7 +8,7 @@ let instances = require("../util/userInstance");
 // get submitQuery
 Router.get("/", (req, res)=>{
     ContactModel.find({}).then((docs) => {
-        res.render("submitQuery", { posts : docs });
+        res.render("submitQuery", { posts : docs, val : instances.signedIn });
 
     })
 });

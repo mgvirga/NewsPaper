@@ -2,6 +2,7 @@
 const express = require("express");
 const Router = express.Router();
 const request = require('request');
+let instances = require("../util/userInstance");
 
 var sportsUrl = 'http://newsapi.org/v2/top-headlines?' +
           'country=us&' +
@@ -35,7 +36,7 @@ Router.get('/',(req,res) => {
     // Get user details after that get followers from URL
     dataPromise.then(JSON.parse)
             .then(function(result) {
-        res.render('sports',{ result, title: 'reuters' })
+        res.render('sports',{ result, title: 'reuters', val : instances.signedIn })
                     
     })
 })

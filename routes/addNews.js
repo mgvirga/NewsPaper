@@ -27,7 +27,7 @@ Router.get("/", (req, res)=>{
               if(user.accountType === true )
               {
                 NewsModel.find({}).then((docs)=>{     
-                    res.render("addNews", { posts : docs });
+                    res.render("addNews", { posts : docs, val : instances.signedIn });
                 })
               }
               else

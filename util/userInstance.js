@@ -2,11 +2,7 @@ const UserModel = require("../model/user");
 
 const instanceVal =
 {
-    title : "",
-    name : "",
-    username : "",
-    password : "",
-    admin : false
+    signedin : Boolean,
 };
 
 module.exports.instanceVal;

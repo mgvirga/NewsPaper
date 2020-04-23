@@ -34,7 +34,7 @@ Router.get("/:id", (req, res) => {
               _id: requestedId
             }, (err, post) => {
                 if (!err) {
-                    res.render("editUser.ejs", {posts:post});
+                    res.render("editUser.ejs", {posts:post, val : instances.signedIn});
                 }
               });
             }

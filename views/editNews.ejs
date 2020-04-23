@@ -1,3 +1,5 @@
+<!-- Danielle created this page for edit news -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,21 +46,22 @@
 </head>
 <body>
     <form method="POST" action="/editNews/<%=posts._id%>">
+        <!-- <input  type="hidden name="_id" value="<%=posts._id%>"/> -->
         <p>
             <label>Title</label>
-            <input type="text" name="title" value="<%=posts.title%>" required/>
+            <input type="text" name="title" value="<%=posts.title%>"/>
         </p>
         <p>
             <label>Description</label>
-            <input type="text" name="description" value="<%=posts.description%>" required>
+            <input type="text" name="description" value="<%=posts.description%>">
         </p>
         <p>
             <label>Url</label>
-            <input type="Url" name="url" value="<%=posts.url%>" required/>
+            <input type="text" name="url" value="<%=posts.url%>" />
         </p>
         <p>
             <label>Url to Imange</label>
-            <input type="Url" name="imageurl" value="<%=posts.imageurl%>" required/>
+            <input type="text" name="imageurl" value="<%=posts.imageurl%>"/>
         </p>
 
         <button type="submit">Update</button>

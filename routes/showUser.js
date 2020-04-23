@@ -26,7 +26,7 @@ Router.get("/", (req, res)=>{
               if(user.accountType === true )
               {
                 UserModel.find({}).then((docs)=>{
-                res.render("showUser", { posts : docs });
+                res.render("showUser", { posts : docs, val : instances.signedIn });
                 })
               }
               else

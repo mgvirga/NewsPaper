@@ -11,11 +11,10 @@ const config = require('../config.js');
 const jwt = require('jsonwebtoken');
 localStorage = new LocalStorage('./scratch');
 
-
 // get the login
 Router.get("/", (req, res)=>{
-    res.render("login"
-    );
+  instances.signedIn = false;
+    res.render("login", { val : instances.admin});
 });
 
 // Login User
@@ -30,27 +29,29 @@ Router.post('/', function(req, res) {
         if (!passwordIsValid) return res.redirect("/");
         else{
           if(user.accountType == true)
-          {
+          {            
             var token = jwt.sign({ id: user._id }, config.secret, {
               expiresIn: 86400 // expires in 24 hours
             });
             localStorage.setItem('authtoken', token)
+            instances.signedIn = true;
             res.redirect("/home");
           }
           else{
+            console.log("instance in post index customer "+i);
+            instances.signedIn = false;
             res.redirect("/");
           }
         }
-        
+
       }
     });
 });
 
   // get method to logout
  Router.get('/logout', (req,res) => {
+  instances.signedIn = false;
   localStorage.removeItem('authtoken');
   res.redirect('/');
 })
 module.exports = Router;
-
-//This is the home page where the user logs in
