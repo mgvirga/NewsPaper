@@ -1,75 +1,121 @@
 <html lang="en">
 	<head>
         <header>
-            <link rel="stylesheet" href="/css/bootstrap.min.css" />
             <%- include('navigationHeader') -%>
-
+            <link rel="stylesheet" href="/css/bootstrap.min.css" />
         </header>
-	<style>
-     
-        table 
-        {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-        td, th 
-        {
-            border: 5px solid black;
-            text-align: left;
-            padding: 20px;
-            background-color: black;
-            color: yellow;
-        }
-
-    </style>
 
 	</head>
 	<body>
-        <h2>City: <%=result.city.name%></h2>
-        <table>
-        <thead>
-            <tr>
-                <th>The temperature for the day</th>
-                <th>The max temperature</th>
-                <th>The min temperature</th>
-                <th>The main weather</th>
-                <th>The date</th>
-                <th>The humidity</th>
-                <th>The Image</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <%for(let i=0; i<result.list.length;i++){%>
-                <th><%=result.list[i].temp.day%>°C</th>
-                <th><%=result.list[i].temp.max%></th>
-                <th><%=result.list[i].temp.min%>°C</th>
-                <th><%=result.list[i].weather[0].main%></th>
-                <th><%=Date(result.list[i].dt)%></th>
-                <th><%=result.list[i].humidity%></th>
-                <th><img class="card-img-top" src='https://openweathermap.org/img/w/<%=result.list[i].weather[0].icon%>.png' alt="weather"/></th>
-            </tr>
-            <%}%>
-    </tbody>
-    </table>
+        <div class="container">
+            <div class="weather-title">
+              <h1>Sunshine Weather</h1>
+              <p>View the current weather for your city</p>
+            </div>
+            <form action="/weather" method="POST">
+              <input type="text" name="city" class="ghost-input" placeholder="Enter a city">
+            </form>
+        
+            <div class="result">
+              <% if(temp !== null)  {%>
+                <h1 class="temp"><%= temp %> &ordm;F</h1>
+              <% } %>
+        
+              <div class="icon-des">
+                <% if(icon !== null)  {%>
+                  <img class="icon" src="http://openweathermap.org/img/w/<%= icon %>.png">
+                <% } %>
+                <% if(des !== null)  {%>
+                  <p><%= des %></p>
+                <% } %>
+              </div>
+        
+              <% if(city !== null)  {%>
+                <p><%= city %></p>
+              <% } %>
+              
+            </div>
+          </div>
     <style>
-        html, body
-        {
-          height: 100%;
-          background-image: linear-gradient(yellow, deepskyblue);;
-    
-          /* Full height */
-          height: 100%;
-    
-          /* Center and scale the image nicely */
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 700px;
+            height: 350px;
+            background: #000000;
+            margin: 4rem auto;
+        }
+
+        header {
+            background: #111;
+            height: 3rem;
+            width: 100%;
+            position: relative;
+        }
+
+        p{
+            color: #ffffff;
+            font-size: 25px;
+        }
+        .weather-title {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .weather-title h1 {
+            font-weight: bold;
+            font-size: 35px;
+        }
+
+        form {
+            padding: 0 .5rem;         
+            font-size: 20px;
+
+        }
+
+        form input {
+            width: 100%;
+            outline: none;
+            border: none;
+            text-align: center;
+            border-bottom: 1px solid #807a7a;
+        }
+
+        .result {
+            text-align: center;
+        }
+
+        .result .temp {
+            
+            position: relative;
+        }
+
+        .result .icon-des {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result .icon-des .icon {
+            margin-right: 1rem;
+        }
+
+        .result .city {
+            font-size: 1rem;
+}
+
       </style>
     </body>
     <footer>
+        <%- include('chat') -%>
     </footer>
 </html>
-

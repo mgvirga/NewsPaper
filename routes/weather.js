@@ -1,45 +1,50 @@
-// imports
-const express = require("express");
-const Router = express.Router();
+const router = require('express').Router();
+const fetch = require('node-fetch');
 let instances = require("../util/userInstance");
-const request = require('request');
 
-const city = "alpharetta"
+router.get('/', (req, res) => {
+  res.render('weather', {
+    val : instances.signedIn,
+    city: null,
+    des: null,
+    icon: null,
+    temp: null, 
+  });
+});
 
-const weatherUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&mode=json&units=metric&cnt=5&appid=fbf712a5a83d7305c3cda4ca8fe7ef29";
+router.post('/', async (req, res) => {
+  const city = req.body.city;
+//  const url_api = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&mode=json&units=metric&cnt=5&appid=${process.env.API_KEY}';
+  const url_api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=fbf712a5a83d7305c3cda4ca8fe7ef29`;
 
-// getWeather 
-function getWeather(url) {
-    // Setting URL and headers for request
-    var options = {
-        url: weatherUrl,
-        headers: {
-            'User-Agent': 'request'
-        }
-    };
-    // Return new promise 
-    return new Promise(function(resolve, reject) {
-        // Do async job
-        request.get(options, function(err, resp, body) {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(body);
-            }
-        })
-    })
-}
-// Weather Api Route
-Router.get('/',(req,res) => {
-    var dataPromise = getWeather();
-    // Get user details after that get followers from URL
-    dataPromise.then(JSON.parse)
-               .then(function(result) {
-                    res.render('weather',{ result, title: 'Weather', val : instances.signedIn })
-                    
-                })
+  try {
+    await fetch(url_api)
+      .then(res => res.json())
+      .then(data => {
+        const city = data.name;
+        const des = data.weather[0].description;
+        const icon = data.weather[0].icon;
+        const kelvinTemp = data.main.temp; 
+        
+        var temp =  Math.round(kelvinTemp - 273.15) * 9/5 + 32;
+
+        console.log(data);
+
+        res.render('weather', {
+          city, des, icon, temp, val : instances.signedIn,
+        });
+        
+      });
+
+  } catch (err) {
+    res.render('weather', {
+      city: 'something wrong',
+      des: null,
+      icon: null,
+      temp: null,    })
+  }
+
 })
 
-module.exports = Router;
 
-//The point of this javascript is to show the users the weather
+module.exports = router;
