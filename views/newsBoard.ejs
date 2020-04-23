@@ -52,8 +52,19 @@
             <td><%= post.date %></td>
             <td>
                 <button name="edit" onclick="location.href='/editNews/<%= post._id %>'">Edit</button>
-                <button name="delete" onclick="deleteAlert()">Delete</button>
-                <!-- Danielle added delete Script -->
+                <button name="delete" onclick="deleteAlert('/newsBoard/delete/<%= post._id %>')">Delete</button>
+                
+                        <!-- Danielle added this script function for popup and delete 4/23-->
+                <script>
+                    function deleteAlert(url)
+                    {
+                        var c = confirm("Do you want to delete news?")
+                        if (c) {
+                            return location.href=url;
+                        }
+                    }
+               </script>
+                               <!-- Danielle added delete Script
                 <script>
         
                     function deleteAlert()
@@ -62,7 +73,7 @@
                             location.href='/newsBoard/delete/<%= post._id %>'
                         }
                     }
-               </script>
+               </script> -->
             </td>
         </tr>
         <%});%>

@@ -39,43 +39,20 @@ Router.get("/", (req, res)=>{
     })
 });
 
+// Danielle delete function for news - 4/23/2020
 // delete News
 Router.get('/delete/:id', function(req, res) {
-    // Danielle added verification
-
-    // get token
-    var token = localStorage.getItem('authtoken')
-    if (!token) {
-        res.redirect('/')
-    }
-    // verify token
-    jwt.verify(token, config.secret, function(err, decoded) {
-    if (err) {
-        res.redirect('/')
-    };
-       UserModel.findById(decoded.id, { password: 0 }, function (err, user) {
-              if (err) {res.redirect('/')}
-              if (!user) {res.redirect('/')}
-              // console.log(user.accountType);
-              if(user.accountType === true )
-              {
-                const requestedId = req.params.id;
-                // console.log("id", requestedId)
-                // update a News
-                // console.log("req.body",req.body)
-                NewsModel.findByIdAndDelete(requestedId, function(err, data){
-                    if(err)
-                    {
-                        console.error(err);
-                    }
-                    // console.log("data",data);
-                })
-                // redirect to the dashboard
-                // const string = encodeURIComponent('Success adding News');
-                res.redirect("/newsBoard");
-              }
-       })
+  
+  const requestedId = req.params.id;
+  // update a News
+  NewsModel.findByIdAndDelete(requestedId, function(err, data){
+      if(err)
+      {
+          console.error(err);
+      }
     })
+
+    res.redirect("/newsBoard");
   });
   
 

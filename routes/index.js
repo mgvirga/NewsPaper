@@ -12,15 +12,19 @@ const jwt = require('jsonwebtoken');
 localStorage = new LocalStorage('./scratch');
 
 
+
 Router.get("/", (req, res)=>{
-    res.render("login", {});
+    res.render("login"
+    );
 });
 
 // Login User
 Router.post('/', function(req, res) {
     UserModel.findOne({ email: req.body.email }, function (err, user) {
       if (err) return res.status(500).send('Error on the server.');
-      if (!user) { res.redirect("/");}
+      if (!user) { 
+        res.redirect("/");
+      }
       else{
         const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
         // Danielle fixed authenitication bug

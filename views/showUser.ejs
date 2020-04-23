@@ -55,17 +55,29 @@
                     <td><%=post.username%></td>
                     <td>
                         <button name="edit" onclick="location.href='/editUser/<%= post._id %>'">Edit</button>
-                        <button name="delete" onclick="deleteAlert()">Delete</button>
-                <!-- Danielle added delete Script -->
+                        <button name="delete" onclick="deleteAlert('/showUser/delete/<%= post._id %>')">Delete</button>
+                
+                        <!-- Danielle added this script function for popup and delete 4/23 -->
+                <script>
+                    function deleteAlert(url)
+                    {
+                        var c = confirm("Do you want to delete news?")
+                        if (c) {
+                            return location.href=url;
+                        }
+                    }
+               </script>
+                        <!-- Danielle old delete Script
                 <script>
         
                     function deleteAlert()
                     {
                         if (confirm("Do you want to delete user?") == true) {
+
                             location.href='/showUser/delete/<%= post._id %>'
                         }
                     }
-               </script>
+               </script> -->
                     </td>
                 </tr>
             <%});%>
