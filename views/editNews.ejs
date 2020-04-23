@@ -49,19 +49,19 @@
         <!-- <input  type="hidden name="_id" value="<%=posts._id%>"/> -->
         <p>
             <label>Title</label>
-            <input type="text" name="title" value="<%=posts.title%>"/>
+            <input type="text" name="title" value="<%=posts.title%>" required/>
         </p>
         <p>
             <label>Description</label>
-            <input type="text" name="description" value="<%=posts.description%>">
+            <input type="text" name="description" value="<%=posts.description%>" required>
         </p>
         <p>
             <label>Url</label>
-            <input type="text" name="url" value="<%=posts.url%>" />
+            <input type="Url" name="url" value="<%=posts.url%>" required/>
         </p>
         <p>
             <label>Url to Imange</label>
-            <input type="text" name="imageurl" value="<%=posts.imageurl%>"/>
+            <input type="Url" name="imageurl" value="<%=posts.imageurl%>" required/>
         </p>
 
         <button type="submit">Update</button>

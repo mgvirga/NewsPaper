@@ -27,7 +27,7 @@ Router.post('/', function(req, res) {
       email : req.body.email,
       password : hashedPassword,
       // Danielle changed acount type to false   
-      accountType: false
+      accountType: true
     },
     function (err, user) {
       if (err) return res.status(500).send("There was a problem registering the user.")
