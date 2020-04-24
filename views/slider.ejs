@@ -39,7 +39,7 @@
                 background-color: rgba(115, 115, 115, 0.8);  
             }  
         .content {  
-            color: #eff5d4;  
+            color: #d0ff00;  
             font-size: 30px;  
             padding: 8px 12px;  
             position: absolute;  
@@ -69,7 +69,7 @@
     </div>  
   
     <script type="text/javascript">  
-        var slide_index = 1;  
+        var slide_index = 0;  
         displaySlides(slide_index);  
   
         function nextSlide(n) {  
@@ -81,12 +81,11 @@
         }  
   
         function displaySlides(n) {  
-            var i;
-            var slidesToShow = 3;
+            var i;  
             var slides = document.getElementsByClassName("showSlide");  
-            if (n > slidesToShow) { slide_index = 1 }  
-            if (n < 1) { slide_index = slidesToShow }  
-            for (i = 0; i < slidesToShow; i++) {  
+            if (n > slides.length) { slide_index = slides.length - 2 }  
+            if (n < 1) { slide_index = slides.length }  
+            for (i = 0; i < slides.length; i++) {  
                 slides[i].style.display = "none";  
             }  
             slides[slide_index - 1].style.display = "block";  

@@ -9,8 +9,8 @@
 	<body>
         <div class="container">
             <div class="weather-title">
-              <h1>Sunshine Weather</h1>
-              <p>View the current weather for your city</p>
+              <h1 class = "headerw">Sunshine Weather</h1>
+              <p class = "pstyle">View the current weather for your city</p>
             </div>
             <form action="/weather" method="POST">
               <input type="text" name="city" class="ghost-input" placeholder="Enter a city">
@@ -26,12 +26,12 @@
                   <img class="icon" src="http://openweathermap.org/img/w/<%= icon %>.png">
                 <% } %>
                 <% if(des !== null)  {%>
-                  <p><%= des %></p>
+                  <p class = "pstyle"><%= des %></p>
                 <% } %>
               </div>
         
               <% if(city !== null)  {%>
-                <p><%= city %></p>
+                <p class = "pstyle"><%= city %></p>
               <% } %>
               
             </div>
@@ -42,10 +42,15 @@
             padding: 0;
             box-sizing: border-box;
         }
+        .headerw
+        {
+          color: yellow;
+        }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
+            background-image: linear-gradient(yellow, deepskyblue);
         }
 
         .container {
@@ -62,7 +67,7 @@
             position: relative;
         }
 
-        p{
+        .pstyle{
             color: #ffffff;
             font-size: 25px;
         }
@@ -95,7 +100,7 @@
         }
 
         .result .temp {
-            
+            color: yellow;
             position: relative;
         }
 

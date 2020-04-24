@@ -22,11 +22,11 @@ Router.post('/', function(req, res) {
     UserModel.findOne({ email: req.body.email }, function (err, user) {
       if (err) return res.status(500).send('Error on the server.');
       if (!user) { 
-        res.redirect("/");
+        res.redirect("/login");
       }
       else{
         const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
-        if (!passwordIsValid) return res.redirect("/");
+        if (!passwordIsValid) return res.redirect("/login");
         else{
           if(user.accountType == true)
           {            
@@ -35,12 +35,12 @@ Router.post('/', function(req, res) {
             });
             localStorage.setItem('authtoken', token)
             instances.signedIn = true;
-            res.redirect("/home");
+            res.redirect("/");
           }
           else{
             console.log("instance in post index customer "+i);
             instances.signedIn = false;
-            res.redirect("/");
+            res.redirect("/login");
           }
         }
 
@@ -52,6 +52,6 @@ Router.post('/', function(req, res) {
  Router.get('/logout', (req,res) => {
   instances.signedIn = false;
   localStorage.removeItem('authtoken');
-  res.redirect('/');
+  res.redirect('/login');
 })
 module.exports = Router;

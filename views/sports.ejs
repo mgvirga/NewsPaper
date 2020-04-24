@@ -1,20 +1,16 @@
-<style>
-    .color
-    {
-        font: color = red;
-    }
-</style>
 <html lang="en">
 	<head>
         <header>
             <%- include('navigationHeader') -%>
-
-            <h2>Thanks for the news api https://newsapi.org/docs/get-started</h2>
-
             <link rel="stylesheet" href="/css/bootstrap.min.css" />
         </header>
 	<style>
      
+        .color
+        {
+            font: color = red;
+        }
+
         table 
         {
             font-family: arial, sans-serif;
@@ -26,8 +22,29 @@
             border: 5px solid black;
             text-align: left;
             padding: 20px;
+            color: black;
+            background-image: linear-gradient(yellow, deepskyblue);
+
+        }
+
+        html, body, footer
+        {
+          height: 100%;
+          background-image: linear-gradient(yellow, deepskyblue);
+
+          /* Full height */
+          height: 100%;
+    
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+
+        .imgt
+        {
             background-color: black;
-            color: yellow;
+            color : yellow;
         }
 
     </style>
@@ -41,49 +58,27 @@
                 <th>Article Author:</th>
                 <th>Article Description</th>
                 <th>Article Link</th>
-                <th>Publishing Date</th>
                 <th>Content</th>
-                <th>Image</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-            <%for(let i=0; i<result.articles.length;i++){%>
+            <%for(let i=0; i<5;i++){%>
                 <th><%=result.articles[i].title%></th>
                 <th><%=result.articles[i].author%></th>
                 <th><%=result.articles[i].description%></th>
-                <th><button  onclick="location.href='<%= result.articles[i].url %>'"><%=result.articles[i].title%></button></th>
-                <th><%=result.articles[i].publishedAt%></th>
+                <th><button class = "imgt" onclick="location.href='<%= result.articles[i].url %>'"><%=result.articles[i].title%></button></th>
                 <th><%=result.articles[i].content%></th>
-                <th><img src=<%=result.articles[i].urlToImage%>/></th>
             </tr>
 
             <%}%>
     </tbody>
     </table>
-    <style>
-        html, body
-        {
-          height: 100%;
-          background-image: url("https://www.bensound.com/bensound-img/relaxing.jpg");
-    
-          /* Full height */
-          height: 100%;
-    
-          /* Center and scale the image nicely */
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-      </style>
     </body>
-    <footer>
-    </footer>
-
-    <img src=action = initMap()>
-    <script>
-    </script>
     <%- include('footer') -%>
+
+    <h2>Thanks for the news api https://newsapi.org/docs/get-started</h2>
+
 </html>
 
 

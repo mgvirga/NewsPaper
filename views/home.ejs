@@ -8,22 +8,26 @@
     <%- include('navigationHeader') -%>
   <link rel="stylesheet" href="/css/bootstrap.min.css" />
   </header>
-  
   <style>
     body {
-        background-color: white;
+      background-image: linear-gradient(yellow, deepskyblue);
         color: black;
         padding: 5px;
         }
   </style>
-  <h1>Welcome to the Sunshine!</h1></body>
 
 <body>
-  <%- include('slider') -%>
+  
+  <div>
+    <br>
+    <%- include('slider') -%>
+  </div>
 </body>
 
 <footer>
-  <%- include('chat') -%>
+  <%- include('footer') -%>
+  <%- include('imageHeader') -%>
+
 </footer>
 </html>
 

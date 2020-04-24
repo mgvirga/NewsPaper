@@ -1,0 +1,7 @@
+email : test@test.com
+password : 123
+
+title: Museums Shake off Dust with Virtual Tours
+description: With Covid-19 shutdowns, museums offer virtual tours.
+url: https://www.nytimes.com/2020/04/23/arts/design/best-virtual-museum-guides.html
+imageurl: https://static01.nyt.com/images/2020/04/23/arts/23virtual-museums-vatican/merlin_171800643_ae2f7a98-3837-409c-ac30-e20d4ed4190c-superJumbo.jpg?quality=90&auto=webp

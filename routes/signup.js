@@ -34,7 +34,7 @@ Router.post('/', function(req, res) {
       var token = jwt.sign({ id: user._id }, config.secret, {
         expiresIn: 86400 // expires in 24 hours
       });
-      res.redirect("/");
+      res.redirect("/login");
     }); 
   });
   

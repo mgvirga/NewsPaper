@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require('path');
 const request = require('request');
-const PORT = 3000;
+const PORT = 6500;
 const db = mongoose.connect("mongodb://localhost:27017/project", { useNewUrlParser: true, useUnifiedTopology: true })
 
 const city = "alpharetta";
@@ -25,7 +25,7 @@ const newsBoard = require("./routes/newsBoard");
 const sports = require("./routes/sports");
 const editNews = require("./routes/editNews");
 const editUser = require("./routes/editUser");
-
+const logout = require("./routes/logout");
 
 
 //Middleware for Weather
@@ -38,8 +38,7 @@ app.use(bodyParser.text({ type : "text/html" }));
 app.use(bodyParser.urlencoded({ extended : true }));
 
 //defining ejs files for routing
-app.use("/", login);
-app.use("/home", home);
+app.use("/", home);
 app.use("/login", login);
 app.use("/showUser", showUser);
 app.use("/weather", showWeather);
@@ -51,6 +50,7 @@ app.use("/newsBoard", newsBoard);
 app.use("/sports", sports);
 app.use("/editNews", editNews);
 app.use("/editUser", editUser);
+app.use("/logout", logout);
 
 //to use bootstrap
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
