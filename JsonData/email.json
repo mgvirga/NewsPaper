@@ -1,6 +1,7 @@
-{"_id":{"$oid":"5ea22459a7fc90878c0665b3"},"email":"joshisawesome@gmail.com","query":"Why is the weather bad?","__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"5ea2246da7fc90878c0665b4"},"email":"mattisawesome@hotmail.com","query":"The site loads to fast","__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"5ea22490a7fc90878c0665b5"},"email":"johnisawesome@aol.com","query":"I can't find my article","__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"5ea224d3a7fc90878c0665b6"},"email":"danielleisawesome@yahoo.com","query":"I see you are located in Russia, why?","__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"5ea2250fa7fc90878c0665b7"},"email":"khalilisawesome@tbs.com","query":"How come your news articles are always so positive?","__v":{"$numberInt":"0"}}
+[{"_id":{"$oid":"5ea22459a7fc90878c0665b3"},"email":"joshisawesome@gmail.com","query":"Why is the weather bad?","__v":{"$numberInt":"0"}},
+{"_id":{"$oid":"5ea2246da7fc90878c0665b4"},"email":"mattisawesome@hotmail.com","query":"The site loads to fast","__v":{"$numberInt":"0"}},
+{"_id":{"$oid":"5ea22490a7fc90878c0665b5"},"email":"johnisawesome@aol.com","query":"I can't find my article","__v":{"$numberInt":"0"}},
+{"_id":{"$oid":"5ea224d3a7fc90878c0665b6"},"email":"danielleisawesome@yahoo.com","query":"I see you are located in Russia, why?","__v":{"$numberInt":"0"}},
+{"_id":{"$oid":"5ea2250fa7fc90878c0665b7"},"email":"khalilisawesome@tbs.com","query":"How come your news articles are always so positive?","__v":{"$numberInt":"0"}},
 {"_id":{"$oid":"5ea22531a7fc90878c0665b8"},"email":"ronakisawesome@gmail.com","query":"You guys rock my socks off","__v":{"$numberInt":"0"}}
+]
