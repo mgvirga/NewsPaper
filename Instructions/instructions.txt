@@ -1,5 +1,5 @@
 Here are the instructions to run the project.
-1.importsL
+1.imports:
     -click terminal and use the following command 
         -npm install
 
