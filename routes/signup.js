@@ -29,11 +29,10 @@ Router.post('/', function(req, res) {
       accountType: true
     },
     function (err, user) {
-      if (err) return res.status(500).send("There was a problem registering the user.")
-      // create a token
-      var token = jwt.sign({ id: user._id }, config.secret, {
-        expiresIn: 86400 // expires in 24 hours
-      });
+      if (err) 
+      {
+        return res.status(500).send("There was a problem registering the user.")
+      }
       res.redirect("/login");
     }); 
   });

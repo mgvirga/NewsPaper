@@ -27,7 +27,7 @@ Router.get("/:id", (req, res) => {
        UserModel.findById(decoded.id, { password: 0 }, function (err, user) {
           if (err) {res.redirect('/')}
           if (!user) {res.redirect('/')}
-          if(user.accountType === true )
+          if(user.accountType === true && instances.signedIn == true )
           {
             const requestedId = req.params.id;
             UserModel.findOne({
@@ -39,7 +39,9 @@ Router.get("/:id", (req, res) => {
               });
             }
             else
-              {    
+              {                    
+                localStorage.removeItem('authtoken'); 
+                instances.signedIn == false;
                 res.redirect('/logout');
 
               }
@@ -54,7 +56,6 @@ Router.post('/:id', function(req, res) {
 
     const requestedId = req.params.id;
     // update a User
-    console.log("req.body",req.body)
     UserModel.findByIdAndUpdate(requestedId,{$set: {
       name: req.body.name,
       username: req.body.username,
@@ -68,11 +69,11 @@ Router.post('/:id', function(req, res) {
         console.error(err);
       }
 
-      console.log("new account type: "+data.accountType);
-    if(data.accountType == false)
+      
+    if(data.accountType == false )
     {
       localStorage.removeItem('authtoken'); 
-      res.redirect('/')
+      res.redirect('/logout')
 
     }
     else

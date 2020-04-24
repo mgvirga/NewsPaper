@@ -14,8 +14,8 @@ localStorage = new LocalStorage('./scratch');
 
 // get method to logout
 Router.get('/', (req,res) => {
-instances.signedIn = false;
 localStorage.removeItem('authtoken');
+instances.signedIn = false;
 res.redirect('/home');
 })
 

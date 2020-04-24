@@ -63,6 +63,7 @@ Router.get('/delete/:id', function(req, res) {
         }
       })
         localStorage.removeItem('authtoken'); 
+        instances.signedIn = false;
         res.redirect('/')
     }
     else{

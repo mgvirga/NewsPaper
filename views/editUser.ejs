@@ -61,7 +61,10 @@
         </p>
         <p>
             <label>Account Status</label>
-            <input type="radio" name="accountType" value="true" checked/>Active     
+            <!-- <input type="radio" name="accountType" value="true" checked/>Active -->
+            <input type="text" name="accType" value="Active: <%=posts.accountType%>" disabled/>
+            <br>
+            <input type="radio" name="accountType" value="true" required/>Active     
             <input type="radio" name="accountType" value="false"/>Inactive
         </p>
 

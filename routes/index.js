@@ -50,8 +50,8 @@ Router.post('/', function(req, res) {
 
   // get method to logout
  Router.get('/logout', (req,res) => {
-  instances.signedIn = false;
   localStorage.removeItem('authtoken');
+  instances.signedIn = false;
   res.redirect('/home');
 })
 module.exports = Router;
