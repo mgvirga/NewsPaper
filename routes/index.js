@@ -35,10 +35,10 @@ Router.post('/', function(req, res) {
             });
             localStorage.setItem('authtoken', token)
             instances.signedIn = true;
-            res.redirect("/");
+            res.redirect("/home");
           }
           else{
-            console.log("instance in post index customer "+i);
+            // console.log("instance in post index customer "+i);
             instances.signedIn = false;
             res.redirect("/login");
           }
@@ -52,6 +52,6 @@ Router.post('/', function(req, res) {
  Router.get('/logout', (req,res) => {
   instances.signedIn = false;
   localStorage.removeItem('authtoken');
-  res.redirect('/login');
+  res.redirect('/home');
 })
 module.exports = Router;

@@ -16,7 +16,7 @@ localStorage = new LocalStorage('./scratch');
 Router.get('/', (req,res) => {
 instances.signedIn = false;
 localStorage.removeItem('authtoken');
-res.redirect('/login');
+res.redirect('/home');
 })
 
 module.exports = Router;
