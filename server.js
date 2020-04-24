@@ -8,11 +8,6 @@ const request = require('request');
 const PORT = 6500;
 const db = mongoose.connect("mongodb://localhost:27017/project", { useNewUrlParser: true, useUnifiedTopology: true })
 
-const city = "alpharetta";
-
-const weatherUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&mode=json&units=metric&cnt=5&appid=fbf712a5a83d7305c3cda4ca8fe7ef29";
-
-
 //defining js file for routing
 const login = require("./routes/index");
 const showUser = require("./routes/showUser");

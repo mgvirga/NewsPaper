@@ -1,0 +1,31 @@
+Here are the instructions to run the project.
+1.importsL
+    -click terminal and use the following command 
+        -npm install
+
+2.MongoDb:
+    -If you are familiar with mondodb you can run a server
+    -create a database and call it project
+    -create three collections and name them
+        -user
+        -newspaper
+        -email
+        note:used the same naming conventions as per the json folders
+    -Import the json data we have provided into mongodb compass
+    -You can test adding data to news paper with the presentation data provided
+
+3. localhost(You can run the project with the following commands):
+    -npm start
+    -nodemon server.js
+    -node server.js
+
+4. If you are familiar with nginx you can do the following
+    -download inginx 
+    -configure the nginx.config file
+    -replace in server to match this line
+    listen       6500;
+    -replace in location to match this line
+    routes it to nodejs on 8080
+    -cd to where the nginx.exe is and type the command
+        -.\nginx.exe
+    -beware that boostrap does not always work with this
